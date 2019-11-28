@@ -52,9 +52,15 @@ int main()
 
 		for (AIRLINE* airline = getNextData(iterator); airline != NULL; airline = getNextData(iterator))
 		{
+			char* departureTime = timeToStr(airline->departureTime);
+			char* arrivalTime = timeToStr(airline->arrivalTime);
+
 			printf("출발지 : %c, 도착지 : %c, ", airline->source->name, airline->destination->name);
-			printf("출발 시간 : %d월 %d일 %d:%d, ", airline->departureTime->tm_mon, airline->departureTime->tm_mday, airline->departureTime->tm_hour, airline->departureTime->tm_min);
-			printf("도착 시간 : %d월 %d일 %d:%d\n", airline->arrivalTime->tm_mon, airline->arrivalTime->tm_mday, airline->arrivalTime->tm_hour, airline->arrivalTime->tm_min);
+			printf("출발 시간 : %s, ", departureTime);
+			printf("도착 시간 : %s\n", arrivalTime);
+
+			free(departureTime);
+			free(arrivalTime);
 		}
 	}
 

@@ -1,8 +1,2 @@
-﻿  init.c
-C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\init.c(35,18): warning C4244: '함수': 'time_t'에서 'unsigned int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\init.c(42,17): warning C4047: '=': 'char *'의 간접 참조 수준이 'int'과(와) 다릅니다.
-C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\init.c(56,33): warning C4047: '함수': 'char'의 간접 참조 수준이 'char *'과(와) 다릅니다.
-C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\init.c(56,33): warning C4024: 'addToCityGraph': 형식 및 실제 매개 변수 2의 형식이 서로 다릅니다.
-C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\init.c(79,18): warning C4244: '함수': 'time_t'에서 'unsigned int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\init.c(139,18): warning C4244: '함수': 'time_t'에서 'unsigned int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+﻿  customTime.c
   AirlineReservationProjects.vcxproj -> C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\x64\Debug\AirlineReservationProjects.exe

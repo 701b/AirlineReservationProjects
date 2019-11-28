@@ -86,38 +86,18 @@ LINKED_LIST* initAirlineList(CITY_GRAPH* cityGraph, int day)
 		for (ADJACENCY_CITY* adjacencyCity = getNextData(iterator); adjacencyCity != NULL; adjacencyCity = getNextData(iterator))
 		{
 			CITY* destination = adjacencyCity->city;
-			struct tm* time1 = calloc(1, sizeof(struct tm));
-			struct tm* time2 = calloc(1, sizeof(struct tm));
-			struct tm* time3 = calloc(1, sizeof(struct tm));
+			TIME* time1;
+			TIME* time2;
+			TIME* time3;
 
 			do
 			{
-				time1->tm_year = 2019;
-				time2->tm_year = 2019;
-				time3->tm_year = 2019;
-
-				time1->tm_mon = 1;
-				time2->tm_mon = 1;
-				time3->tm_mon = 1;
-
-				time1->tm_sec = 0;
-				time2->tm_sec = 0;
-				time3->tm_sec = 0;
-
-				time1->tm_mday = day;
-				time2->tm_mday = day;
-				time3->tm_mday = day;
-
-				time1->tm_hour = RANDOM_INTEGER(24);
-				time2->tm_hour = RANDOM_INTEGER(24);
-				time3->tm_hour = RANDOM_INTEGER(24);
-
-				time1->tm_min = RANDOM_INTEGER(60);
-				time2->tm_min = RANDOM_INTEGER(60);
-				time3->tm_min = RANDOM_INTEGER(60);
-			} while (time1->tm_hour != time2->tm_hour
-					&& time1->tm_hour != time3->tm_hour
-					&& time2->tm_hour != time3->tm_hour);
+				time1 = generateTime(1, day, RANDOM_INTEGER(24), RANDOM_INTEGER(60));
+				time2 = generateTime(1, day, RANDOM_INTEGER(24), RANDOM_INTEGER(60));
+				time3 = generateTime(1, day, RANDOM_INTEGER(24), RANDOM_INTEGER(60));
+			} while (time1->hour != time2->hour
+					&& time1->hour != time3->hour
+					&& time2->hour != time3->hour);
 
 			AIRLINE* airline1 = generateAirline(source, destination, time1);
 			AIRLINE* airline2 = generateAirline(source, destination, time2);

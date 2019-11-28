@@ -5,6 +5,7 @@
 #include "city.h"
 #include "linkedList.h"
 #include "airline.h"
+#include "customTime.h"
 
 /*
 구조체 PATH는 연속된 AIRLINE을 갖는다.
@@ -35,18 +36,18 @@ CITY* getDestination(PATH* path);
 
 /*
 path로부터 처음 AIRLINE의 출발 시간을 반환한다.*/
-time_t getDepartureTime(PATH* path);
+TIME* getDepartureTime(PATH* path);
 
 /*
 path로부터 마지막 AIRLINE의 도착 시간을 반환한다. */
-time_t getArrivalTime(PATH* path);
+TIME* getArrivalTime(PATH* path);
 
 /*
 path로부터 마지막 AIRLINE의 도착 시간 - 처음 AIRLINE의 출발 시간을 계산하여 반환한다. */
-time_t getElapsedTime(PATH* path);
+TIME* getElapsedTime(PATH* path);
 
 /*
 depatureTime보다 늦는 AIRLINE들로부터 출발지가 source이고 도착지가 destination이 되도록
 AIRLINE이 구성된 PATH를 만들어 반환한다. 
 경로가 없다면 NULL을 반환한다. */
-PATH* findPathForShortestFlightTime(struct tm* departureTime, CITY* source, CITY* destination);
+PATH* findPathForShortestFlightTime(TIME* departureTime, CITY* source, CITY* destination);

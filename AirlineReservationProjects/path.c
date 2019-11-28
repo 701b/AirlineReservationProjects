@@ -46,29 +46,29 @@ CITY* getDestination(PATH* path)
 	return lastAirline->destination;
 }
 
-time_t getDepartureTime(PATH* path)
+TIME* getDepartureTime(PATH* path)
 {
 	AIRLINE* firstAirline = getFirstFromList(path->airlineList);
 
 	return firstAirline->departureTime;
 }
 
-time_t getArrivalTime(PATH* path)
+TIME* getArrivalTime(PATH* path)
 {
 	AIRLINE* lastAirline = getLastFromList(path->airlineList);
 
 	return lastAirline->arrivalTime;
 }
 
-time_t getElapsedTime(PATH* path)
+TIME* getElapsedTime(PATH* path)
 {
-	time_t departureTime = getDepartureTime(path);
-	time_t arrivalTime = getArrivalTime(path);
+	TIME* departureTime = getDepartureTime(path);
+	TIME* arrivalTime = getArrivalTime(path);
 
-	return arrivalTime - departureTime;
+	return calculateTimeDifference(departureTime, arrivalTime);
 }
 
-PATH* findPathForShortestFlightTime(struct tm* departureTime, CITY* source, CITY* destination)
+PATH* findPathForShortestFlightTime(TIME* departureTime, CITY* source, CITY* destination)
 {
 
 }
