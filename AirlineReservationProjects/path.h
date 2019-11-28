@@ -49,4 +49,4 @@ time_t getElapsedTime(PATH* path);
 depatureTime보다 늦는 AIRLINE들로부터 출발지가 source이고 도착지가 destination이 되도록
 AIRLINE이 구성된 PATH를 만들어 반환한다. 
 경로가 없다면 NULL을 반환한다. */
-PATH* findPathForShortestFlightTime(time_t departureTime, CITY* source, CITY* destination);
+PATH* findPathForShortestFlightTime(struct tm* departureTime, CITY* source, CITY* destination);

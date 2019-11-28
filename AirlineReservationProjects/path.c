@@ -68,7 +68,7 @@ time_t getElapsedTime(PATH* path)
 	return arrivalTime - departureTime;
 }
 
-PATH* findPathForShortestFlightTime(time_t departureTime, CITY* source, CITY* destination)
+PATH* findPathForShortestFlightTime(struct tm* departureTime, CITY* source, CITY* destination)
 {
 
 }
