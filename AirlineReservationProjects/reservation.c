@@ -1,6 +1,7 @@
 #include "reservation.h"
 
-static int nextReservationNumber;
+#define BLACK 0
+#define RED 1
 
 RBT_NODE* generateRBTNode(RESERVATION* reservation)
 {
@@ -15,14 +16,14 @@ RBT_NODE* generateRBTNode(RESERVATION* reservation)
 	return rbtNode;
 }
 
-RESERVATION* generateReservation(const char* name)
+RESERVATION* generateReservation(RESERVATION_RECORD* reservationRecord, const char* name, PATH* path)
 {
 	RESERVATION* reservation = malloc(sizeof(RESERVATION));
 
 	reservation->name = name;
-	reservation->path = generatePath();
+	reservation->path = path;
 	// 1 부터 차례대로 reservation Number로 설정
-	reservation->reservationNumber = ++nextReservationNumber;
+	reservation->reservationNumber = reservationRecord->nextReservationNumber++;
 
 	return reservation;
 }
@@ -33,18 +34,19 @@ RESERVATION_RECORD* generateReservationRecord()
 
 	reservationRecord->root = NULL;
 	reservationRecord->nil = generateRBTNode(NULL);
+	reservationRecord->nextReservationNumber = 1;
 
 	return reservationRecord;
 }
 
-void addToRecord(RESERVATION_RECORD* reservationRecord, RESERVATION* reservation)
+void addToRecord(RESERVATION_RECORD* reservationRecord, const char* name, PATH* path)
 {
-	RBT_NODE* rbtNode = generateRBTNode(reservation);
+	RBT_NODE* rbtNode = generateRBTNode(generateReservation(reservationRecord, name, path));
 
 
 }
 
-void removeFromRecord(RESERVATION_RECORD* reservationRecord, RESERVATION* reservation)
+int removeFromRecord(RESERVATION_RECORD* reservationRecord, RESERVATION* reservation)
 {
 
 }

@@ -33,6 +33,9 @@
     <ClInclude Include="reservation.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="iterator.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="airline.c">
@@ -54,6 +57,9 @@
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="reservation.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="iterator.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>

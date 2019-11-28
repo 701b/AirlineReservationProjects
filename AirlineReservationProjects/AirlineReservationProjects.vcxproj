@@ -126,6 +126,7 @@
     <ClInclude Include="airline.h" />
     <ClInclude Include="city.h" />
     <ClInclude Include="init.h" />
+    <ClInclude Include="iterator.h" />
     <ClInclude Include="linkedList.h" />
     <ClInclude Include="path.h" />
     <ClInclude Include="reservation.h" />
@@ -134,6 +135,7 @@
     <ClCompile Include="airline.c" />
     <ClCompile Include="city.c" />
     <ClCompile Include="init.c" />
+    <ClCompile Include="iterator.c" />
     <ClCompile Include="linkedList.c" />
     <ClCompile Include="main.c" />
     <ClCompile Include="path.c" />

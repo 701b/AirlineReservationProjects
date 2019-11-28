@@ -1,15 +1,27 @@
 #include "city.h"
 
-CITY* generateCity(char* name, int x, int y)
+CITY* generateCity(char name, int x, int y)
 {
 	CITY* city = malloc(sizeof(CITY));
 
-	city->connectionList = generateLinkedList();
+	city->adjacencyList = generateLinkedList();
 	city->name = name;
 	city->x = x;
 	city->y = y;
 
 	return city;
+}
+
+ADJACENCY_CITY* generateAdjacencyCity(CITY* origin, CITY* target)
+{
+	ADJACENCY_CITY* adjacencyCity = malloc(sizeof(ADJACENCY_CITY));
+	int distance = calculateDistanceBetween(origin, target);
+
+	adjacencyCity->city = target;
+	adjacencyCity->distance = distance;
+
+	return adjacencyCity;
+	
 }
 
 CITY_GRAPH* generateCityGraph()
@@ -23,24 +35,42 @@ CITY_GRAPH* generateCityGraph()
 
 int setConnection(CITY* city1, CITY* city2)
 {
-	if (findFromList(city1->connectionList, city2) >= 0)
+	if (city1 == city2)
 	{
 		return 0;
 	}
 
-	addToList(city1->connectionList, city2);
-	addToList(city2->connectionList, city1);
+	ITERATOR* iterator = generateIterator(city1->adjacencyList);
+
+	for (ADJACENCY_CITY* adjacencyCity = getNextData(iterator); adjacencyCity != NULL; adjacencyCity = getNextData(iterator))
+	{
+		if (adjacencyCity->city == city2)
+		{
+			return 0;
+		}
+	}
+
+	ADJACENCY_CITY* adjacencyCity1 = generateAdjacencyCity(city1, city2);
+	//ADJACENCY_CITY* adjacencyCity2 = generateAdjacencyCity(city2, city1); 양방향일때 주석 제거
+
+	addToList(city1->adjacencyList, adjacencyCity1);
+	//addToList(city2->adjacencyList, adjacencyCity2); 양방향일때 주석 제거
 
 	return 1;
 }
 
-CITY* addToCityGraph(CITY_GRAPH* cityGraph, char* name, int x, int y)
+CITY* addToCityGraph(CITY_GRAPH* cityGraph, char name, int x, int y)
 {
 	CITY* city = generateCity(name, x, y);
 
-	addToList(cityGraph, city);
+	addToList(cityGraph->cityList, city);
 
 	return city;
+}
+
+CITY* getFromCityGraph(CITY_GRAPH* cityGraph, int index)
+{
+	return getFromList(cityGraph->cityList, index);
 }
 
 int calculateDistanceBetween(CITY* city1, CITY* city2)

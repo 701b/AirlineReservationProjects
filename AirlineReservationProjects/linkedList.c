@@ -19,15 +19,6 @@ LINKED_LIST* generateLinkedList()
 	linkedList->size = 0;
 }
 
-ITERATOR* generateIterator(LINKED_LIST* linkedList)
-{
-	ITERATOR* iterator = malloc(sizeof(ITERATOR));
-
-	iterator->next = linkedList->first;
-
-	return iterator;
-}
-
 void addToList(LINKED_LIST* linkedList, const void* data)
 {
 	LIST_NODE* node = generateNode(data);
@@ -80,9 +71,13 @@ int findFromList(LINKED_LIST* linkedList, void* data)
 	{
 		if (targetNode->data == data)
 		{
-			return index;
+			//return index;
+			return 1;
 		}
 	}
+
+	// return -1;
+	return 0;
 }
 
 void* getFirstFromList(LINKED_LIST* linkedList)
@@ -105,17 +100,16 @@ void* getLastFromList(LINKED_LIST* linkedList)
 	return linkedList->last->data;
 }
 
-void* getNextData(ITERATOR* iterator)
+void* getFromList(LINKED_LIST* linkedList, int index)
 {
-	if (iterator->next == NULL)
+	LIST_NODE* node = linkedList->first;
+
+	if (index >= linkedList->size)
 	{
 		return NULL;
 	}
 
-	void* data = iterator->next->data;
+	for (int i = 0; i < index; i++, node = node->next);
 
-	iterator->next = iterator->next->next;
-
-	return data;
+	return node->data;
 }
-
