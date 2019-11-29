@@ -19,6 +19,11 @@ typedef struct path
 구조체 PATH를 생성하고 내부 변수를 초기화하여 반환한다. */
 PATH* generatePath();
 
+
+/*
+path를 복제하여 반환한다. */
+PATH* generateClonePath(PATH* path);
+
 /*
 path가 비어있다면 그냥 추가한다.
 비어있지 않고, path안의 airline중 마지막의 목적지가 추가될 airline의 출발지가 같고,
@@ -50,4 +55,8 @@ TIME* getElapsedTime(PATH* path);
 depatureTime보다 늦는 AIRLINE들로부터 출발지가 source이고 도착지가 destination이 되도록
 AIRLINE이 구성된 PATH를 만들어 반환한다. 
 경로가 없다면 NULL을 반환한다. */
-PATH* findPathForShortestFlightTime(TIME* departureTime, CITY* source, CITY* destination);
+PATH* findPathForShortestFlightTime(LINKED_LIST* airlineList[], TIME* departureTime, CITY* source, CITY* destination);
+
+/*
+path의 메모리를 해제한다. */
+void freePath(PATH* path);

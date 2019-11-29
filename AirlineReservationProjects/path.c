@@ -9,6 +9,20 @@ PATH* generatePath()
 	return path;
 }
 
+PATH* generateClonePath(PATH* path)
+{
+	PATH* clonePath = generatePath();
+
+	ITERATOR* iterator = generateIterator(path->airlineList);
+
+	for (AIRLINE* airline = getNextData(iterator); airline != NULL; airline = getNextData(iterator))
+	{
+		addToPath(clonePath, airline);
+	}
+
+	return clonePath;
+}
+
 int addToPath(PATH* path, AIRLINE* airline)
 {
 	AIRLINE* lastAirline = getLastFromList(path->airlineList);
@@ -68,7 +82,16 @@ TIME* getElapsedTime(PATH* path)
 	return calculateTimeDifference(departureTime, arrivalTime);
 }
 
-PATH* findPathForShortestFlightTime(TIME* departureTime, CITY* source, CITY* destination)
+PATH* findPathForShortestFlightTime(LINKED_LIST* airlineList[], TIME* departureTime, CITY* source, CITY* destination)
+{
+	PATH* path = generatePath();
+
+
+}
+
+void freePath(PATH* path)
 {
 
+	free(path->airlineList);
+	free(path);
 }
