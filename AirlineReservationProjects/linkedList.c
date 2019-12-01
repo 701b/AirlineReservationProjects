@@ -17,6 +17,8 @@ LINKED_LIST* generateLinkedList()
 	linkedList->first = NULL;
 	linkedList->last = NULL;
 	linkedList->size = 0;
+
+	return linkedList;
 }
 
 void addToList(LINKED_LIST* linkedList, const void* data)
@@ -42,21 +44,25 @@ void removeFromList(LINKED_LIST* linkedList, void* data)
 	LIST_NODE* targetNode = linkedList->first;
 	LIST_NODE* previousNode = NULL;
 
-	for (; targetNode != NULL; targetNode = targetNode->next)
+	for (; targetNode != NULL; previousNode = targetNode, targetNode = targetNode->next)
 	{
 		if (targetNode->data == data)
 		{
 			if (previousNode == NULL)
 			{
 				linkedList->first = targetNode->next;
-				free(targetNode);
 			}
 			else
 			{
 				previousNode->next = targetNode->next;
-				free(targetNode);
 			}
 
+			if (linkedList->last == targetNode)
+			{
+				linkedList->last = previousNode;
+			}
+
+			free(targetNode);
 			linkedList->size--;
 			break;
 		}
