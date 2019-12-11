@@ -60,3 +60,7 @@ CITY* getFromCityGraph(CITY_GRAPH* cityGraph, int index);
 /*
 두 CITY 사이의 거리를 구하여 반환한다. */
 int calculateDistanceBetween(CITY* city1, CITY* city2);
+
+/*
+cityGraph로 부터 해당 문자를 이름으로 하는 도시를 반환한다. */
+CITY* findCityByChar(CITY_GRAPH* cityGraph, char c);

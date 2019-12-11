@@ -90,6 +90,8 @@
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
+      <HeapReserveSize>104857600</HeapReserveSize>
+      <StackReserveSize>104857600</StackReserveSize>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -123,18 +125,24 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="airline.h" />
+    <ClInclude Include="flight.h" />
+    <ClInclude Include="airplane.h" />
     <ClInclude Include="city.h" />
+    <ClInclude Include="consoleControl.h" />
     <ClInclude Include="customTime.h" />
     <ClInclude Include="init.h" />
     <ClInclude Include="iterator.h" />
     <ClInclude Include="linkedList.h" />
+    <ClInclude Include="page.h" />
     <ClInclude Include="path.h" />
     <ClInclude Include="reservation.h" />
+    <ClInclude Include="userInterface.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="airline.c" />
+    <ClCompile Include="flight.c" />
+    <ClCompile Include="airplane.c" />
     <ClCompile Include="city.c" />
+    <ClCompile Include="consoleControl.c" />
     <ClCompile Include="customTime.c" />
     <ClCompile Include="init.c" />
     <ClCompile Include="iterator.c" />
@@ -142,6 +150,8 @@
     <ClCompile Include="main.c" />
     <ClCompile Include="path.c" />
     <ClCompile Include="reservation.c" />
+    <ClCompile Include="userInterface.c" />
+    <ClCompile Include="page.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

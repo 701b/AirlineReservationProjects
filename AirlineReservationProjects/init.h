@@ -3,7 +3,7 @@
 #include <string.h>
 
 #include "reservation.h"
-#include "airline.h"
+#include "flight.h"
 #include "iterator.h"
 
 /*
@@ -14,9 +14,9 @@ CITY_GRAPH* initCityGraph();
 /*
 LINKED_LIST를 만들어 초기화하고,
 모든 연결 경로에 */
-LINKED_LIST* initAirlineList(CITY_GRAPH* cityGraph, int day);
+LINKED_LIST* initflightList(CITY_GRAPH* cityGraph, int day);
 
 /*
 RESERVATION_RECORD를 만들어 초기화하고,
 랜덤으로 생성된 500개의 RESERVATION을 추가하여 반환한다.*/
-RESERVATION_RECORD* initReservationRecord();
+RESERVATION_RECORD* initReservationRecord(LINKED_LIST* flightList[], CITY_GRAPH* cityGraph);

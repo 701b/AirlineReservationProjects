@@ -40,5 +40,15 @@ M월 D일 hh:mm*/
 char* timeToStr(TIME* time);
 
 /*
+time을 문자열로 반환한다. 시간과 분만 나타낸다. 
+hh:mm*/
+char* timeToShortStr(TIME* time);
+
+/*
 두 TIME의 차를 분단위로 반환한다. */
 int calculateTimeDifference(TIME* time1, TIME* time2);
+
+/*
+날짜 형태로 된 문자열을 시간으로 바꾼다. 
+yyyy. mm. dd*/
+TIME* strToTime(char* str);

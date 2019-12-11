@@ -117,6 +117,32 @@ char* timeToStr(TIME* time)
 	return result;
 }
 
+char* timeToShortStr(TIME* time)
+{
+	char* result = calloc(16, sizeof(char));
+	char hour[3] = "";
+	char minute[3] = "";
+
+	sprintf(hour, "%d", time->hour);
+	sprintf(minute, "%d", time->minute);
+
+	if (strlen(hour) == 1)
+	{
+		hour[1] = hour[0];
+		hour[0] = '0';
+	}
+
+	if (strlen(minute) == 1)
+	{
+		minute[1] = minute[0];
+		minute[0] = '0';
+	}
+
+	sprintf(result, "%s:%s", hour, minute);
+
+	return result;
+}
+
 int calculateTimeDifference(TIME* time1, TIME* time2)
 {
 	int minute1 = 0;
@@ -134,4 +160,22 @@ int calculateTimeDifference(TIME* time1, TIME* time2)
 
 	return abs(minute1 - minute2);
 }
+
+TIME* strToTime(char* str)
+{
+	char buffer[100] = "";
+	TIME* time;
+
+	strcpy(buffer, str);
+
+	char* yearStr = strtok(buffer, ". ");
+	char* monthStr = strtok(NULL, ". ");
+	char* dayStr = strtok(NULL, ". ");
+
+	int month = atoi(monthStr);
+	int day = atoi(dayStr);
+	
+	time = generateTime(month, day, 0, 0);
+
+	return time;
 }

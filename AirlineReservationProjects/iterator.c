@@ -22,3 +22,24 @@ void* getNextData(ITERATOR* iterator)
 
 	return data;
 }
+
+int hasNextData(ITERATOR* iterator)
+{
+	if (iterator->next == NULL)
+	{
+		return 0;
+	}
+	else
+	{
+		return 1;
+	}
+}
+
+void freeIterator(ITERATOR** iterator)
+{
+	if (*iterator != NULL)
+	{
+		free(*iterator);
+		*iterator = NULL;
+	}
+}

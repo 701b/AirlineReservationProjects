@@ -51,3 +51,7 @@ void* getLastFromList(LINKED_LIST* linkedList);
 /*
 linkedList에서 (index + 1)번째 노드의 data를 반환한다. */
 void* getFromList(LINKED_LIST* linkedList, int index);
+
+/*
+linkedList의 메모리를 해제한다. */
+void freeLinkedList(LINKED_LIST** linkedList);

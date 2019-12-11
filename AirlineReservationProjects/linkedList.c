@@ -119,3 +119,26 @@ void* getFromList(LINKED_LIST* linkedList, int index)
 
 	return node->data;
 }
+
+void freeLinkedList(LINKED_LIST** linkedList)
+{
+	if (*linkedList != NULL)
+	{
+		if ((*linkedList)->size == 0)
+		{
+			free(*linkedList);
+			return;
+		}
+
+		LIST_NODE* node = (*linkedList)->first;
+		LIST_NODE* nextNode = node->next;
+
+		for (; nextNode != NULL; node = nextNode, nextNode = nextNode->next)
+		{
+			free(node);
+		}
+
+		free(node);
+		free(*linkedList);
+	}
+}

@@ -49,11 +49,13 @@ CITY_GRAPH* initCityGraph()
 			if (city->x == x && city->y == y)
 			{
 				i--;
+				freeIterator(iterator);
 				continue;
 			}
 		}
 
 		addToCityGraph(cityGraph, name, x, y);
+		freeIterator(&iterator);
 	}
 
 	for (int i = 0; i < INITIAL_NUMBER_OF_DIRECT_PATH; i++)
@@ -72,9 +74,9 @@ CITY_GRAPH* initCityGraph()
 	return cityGraph;
 }
 
-LINKED_LIST* initAirlineList(CITY_GRAPH* cityGraph, int day)
+LINKED_LIST* initflightList(CITY_GRAPH* cityGraph, int day)
 {
-	LINKED_LIST* airlineList = generateLinkedList();
+	LINKED_LIST* flightList = generateLinkedList();
 
 	srand(time(NULL));
 
@@ -86,33 +88,42 @@ LINKED_LIST* initAirlineList(CITY_GRAPH* cityGraph, int day)
 		for (ADJACENCY_CITY* adjacencyCity = getNextData(iterator); adjacencyCity != NULL; adjacencyCity = getNextData(iterator))
 		{
 			CITY* destination = adjacencyCity->city;
-			TIME* time1;
-			TIME* time2;
-			TIME* time3;
+			TIME* times[6] = { NULL, NULL, NULL, NULL, NULL, NULL };
 
-			do
+			for (int j = 0; j < RANDOM_INTEGER(4) + 2; j++)
 			{
-				time1 = generateTime(1, day, RANDOM_INTEGER(24), RANDOM_INTEGER(60));
-				time2 = generateTime(1, day, RANDOM_INTEGER(24), RANDOM_INTEGER(60));
-				time3 = generateTime(1, day, RANDOM_INTEGER(24), RANDOM_INTEGER(60));
-			} while (time1->hour != time2->hour
-					&& time1->hour != time3->hour
-					&& time2->hour != time3->hour);
+				TIME* time = generateTime(1, day, RANDOM_INTEGER(24), RANDOM_INTEGER(60));
+				int regenerate = 0;
 
-			AIRLINE* airline1 = generateAirline(source, destination, time1);
-			AIRLINE* airline2 = generateAirline(source, destination, time2);
-			AIRLINE* airline3 = generateAirline(source, destination, time3);
+				for (int k = 0; k < j; k++)
+				{
+					if (calculateTimeDifference(time, times[k]) <= 90)
+					{
+						regenerate = 1;
+						break;
+					}
+				}
 
-			addToList(airlineList, airline1);
-			addToList(airlineList, airline2);
-			addToList(airlineList, airline3);
+				if (regenerate)
+				{
+					j--;
+					free(time);
+					continue;
+				}
+				
+				times[j] = time;
+				AIRPLANE* airplane = generateAirplane(RANDOM_INTEGER(6));
+				addToFlightList(flightList, source, destination, time, airplane);
+			}
 		}
+
+		freeIterator(&iterator);
 	}
 
-	return airlineList;
+	return flightList;
 }
 
-RESERVATION_RECORD* initReservationRecord()
+RESERVATION_RECORD* initReservationRecord(LINKED_LIST* flightList[], CITY_GRAPH* cityGraph)
 {
 	RESERVATION_RECORD* record = generateReservationRecord();
 
@@ -121,9 +132,28 @@ RESERVATION_RECORD* initReservationRecord()
 	for (int i = 0; i < INITIAL_NUMBER_OF_RESERVATION; i++)
 	{
 		char* name = generateRandomStr(RANDOM_LENGTH_OF_STR);
-		PATH* path = generatePath();
+		TIME* departureTime = generateTime(1, RANDOM_INTEGER(30) + 1, RANDOM_INTEGER(24), RANDOM_INTEGER(60));
+		CITY* source = getFromCityGraph(cityGraph, RANDOM_INTEGER('z' - 'a'));
+		CITY* destination = getFromCityGraph(cityGraph, RANDOM_INTEGER('z' - 'a'));
+		PATH* path;
 
-		//path 랜덤 설정해야함.
+		if (source == destination)
+		{
+			i--;
+			free(departureTime);
+			free(name);
+			continue;
+		}
+
+		path = findPathForShortestFlightTime(flightList, departureTime, source, destination);
+
+		if (path == NULL)
+		{
+			i--;
+			free(departureTime);
+			free(name);
+			freePath(&path);
+		}
 
 		addToRecord(record, name, path);
 	}

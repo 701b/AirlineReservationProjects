@@ -5,7 +5,7 @@
 
 #include "linkedList.h"
 #include "path.h"
-#include "airline.h"
+#include "flight.h"
 
 /*
 구조체 RESERVATION은 예약을 뜻하며, 예약자 이름, 예약 번호, 경로를 가진다.
@@ -18,7 +18,7 @@ typedef struct reservation
 } RESERVATION;
 
 /*
-레드 블랙 트리(RESERVATION_RECORD에 사용되는 노드이다. */
+레드 블랙 트리(RESERVATION_RECORD)에 사용되는 노드이다. */
 typedef struct rbtnode
 {
 	struct reservation* reservation;
@@ -29,12 +29,11 @@ typedef struct rbtnode
 } RBT_NODE;
 
 /*
-구조체 RESERVATION_RECORD는 레드 블랙 트리로, root노드와 nil노드를 갖는다.
+구조체 RESERVATION_RECORD는 레드 블랙 트리로, root노드를 갖는다.
 nextReservationNumber은 새로 RESERVATION이 추가될 때 1부터 차례대로 지정하기 위해 선언되었다.*/
 typedef struct reservationRecord
 {
 	RBT_NODE* root;
-	RBT_NODE* nil;
 	int nextReservationNumber;
 } RESERVATION_RECORD;
 
@@ -43,7 +42,8 @@ typedef struct reservationRecord
 RESERVATION_RECORD* generateReservationRecord();
 
 /*
-name, path를 이용하여 RESERVATION을 생성하고, 그것을 reservationRecord에 추가한다. */
+name, path를 이용하여 RESERVATION을 생성하고, 그것을 reservationRecord에 추가한다. 
+만들어진 RESERVATION도 반환한다. */
 void addToRecord(RESERVATION_RECORD* reservationRecord, const char* name, PATH* path);
 
 /*
@@ -55,3 +55,6 @@ int removeFromRecord(RESERVATION_RECORD* reservationRecord, RESERVATION* reserva
 reservationRecord를 배열로 바꾸어 반환한다. */
 RESERVATION** arrayFromRecord(RESERVATION_RECORD* reservationRecord);
 
+/*
+reservationRecord를 레드 블랙 트리의 형태로 출력한다. */
+void printTree(RESERVATION_RECORD* reservationRecord);

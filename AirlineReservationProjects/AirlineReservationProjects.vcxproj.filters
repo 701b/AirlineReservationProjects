@@ -15,9 +15,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="airline.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
     <ClInclude Include="city.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
@@ -39,11 +36,23 @@
     <ClInclude Include="customTime.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="airplane.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="page.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="userInterface.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="consoleControl.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="flight.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="airline.c">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="city.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
@@ -66,6 +75,21 @@
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="customTime.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="airplane.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="userInterface.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="page.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="consoleControl.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="flight.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>

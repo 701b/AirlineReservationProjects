@@ -80,3 +80,20 @@ int calculateDistanceBetween(CITY* city1, CITY* city2)
 
 	return sqrt(pow(xDiff, 2) + pow(yDiff, 2));
 }
+
+CITY* findCityByChar(CITY_GRAPH* cityGraph, char c)
+{
+	ITERATOR* iterator = generateIterator(cityGraph->cityList);
+
+	for (CITY* city = getNextData(iterator); city != NULL; city = getNextData(iterator))
+	{
+		if (city->name == c)
+		{
+			freeIterator(&iterator);
+			return city;
+		}
+	}
+
+	freeIterator(&iterator);
+	return NULL;
+}
