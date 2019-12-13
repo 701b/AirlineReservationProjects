@@ -12,7 +12,7 @@
 #define EDIT_TEXT_INPUT_MESSAGE "::"
 #define COMBO_BOX_INPUT_MESSAGE "▼"
 
-#define MAX_LENGTH_OF_INPUT_TEXT 15
+#define MAX_LENGTH_OF_INPUT_TEXT 12
 #define MAX_LINE_OF_COMBO_BOX 5
 
 PAGE* generatePage()
@@ -236,7 +236,20 @@ void moveTo(PAGE* page)
 					break;
 				}
 
-				page->currentView = page->view[row - 1][0];
+				{
+					VIEW* view = NULL;
+
+					for (int i = 0; i < MAX_COLUMN_OF_VIEW; i++)
+					{
+						if (view == NULL || (page->view[row - 1][i] != NULL && page->view[row - 1][i]->code != TEXT_CODE && abs(view->x - currentView->x) > abs(page->view[row - 1][i]->x - currentView->x)))
+						{
+							view = page->view[row - 1][i];
+						}
+					}
+
+					page->currentView = view;
+				}
+
 				row -= 1;
 				break;
 
@@ -247,7 +260,20 @@ void moveTo(PAGE* page)
 					break;
 				}
 
-				page->currentView = page->view[row + 1][0];
+				{
+					VIEW* view = NULL;
+
+					for (int i = 0; i < MAX_COLUMN_OF_VIEW; i++)
+					{
+						if (view == NULL || (page->view[row + 1][i] != NULL && page->view[row + 1][i]->code != TEXT_CODE && abs(view->x - currentView->x) > abs(page->view[row + 1][i]->x - currentView->x)))
+						{
+							view = page->view[row + 1][i];
+						}
+					}
+
+					page->currentView = view;
+				}
+
 				row += 1;
 				break;
 		}
@@ -381,7 +407,7 @@ void showEditText(EDIT_TEXT* editText)
 	printf(EDIT_TEXT_INPUT_MESSAGE);
 	printf("%s", editText->input);
 
-	for (int i = 0; i < MAX_LENGTH_OF_INPUT_TEXT - strlen(editText->input); i++)
+	for (int i = 0; i < MAX_LENGTH_OF_INPUT_TEXT - strlen(editText->input) + 1; i++)
 	{
 		printf(" ");
 	}
@@ -599,13 +625,16 @@ void freeComboBox(COMBO_BOX** comboBox)
 	}
 }
 
-CHECK_BOX* generateCheckBox(int isChecked, int isChangeable, int x, int y)
+CHECK_BOX* generateCheckBox(int isChecked, int isChangeable, CHECK_BOX* (*checkBoxSet)[MAX_COLUMN_OF_CHECK_BOX_SET], int maxNumberOfCheck, int color, int x, int y)
 {
 	CHECK_BOX* checkBox = malloc(sizeof(CHECK_BOX));
 
 	checkBox->code = CHECK_BOX_CODE;
 	checkBox->isChecked = isChecked;
 	checkBox->isChangeable = isChangeable;
+	checkBox->checkBoxSet = checkBoxSet;
+	checkBox->maxNumberOfCheck = maxNumberOfCheck;
+	checkBox->color = color;
 	checkBox->x = x;
 	checkBox->y = y;
 
@@ -615,6 +644,7 @@ CHECK_BOX* generateCheckBox(int isChecked, int isChangeable, int x, int y)
 void showCheckBox(CHECK_BOX* checkBox)
 {
 	gotoxy(checkBox->x, checkBox->y);
+	changeColor(checkBox->color, BLACK);
 	if (checkBox->isChecked == CHECKED)
 	{
 		printf("■");
@@ -623,12 +653,22 @@ void showCheckBox(CHECK_BOX* checkBox)
 	{
 		printf("□");
 	}
+	changeColor(LIGHT_WHITE, BLACK);
 }
 
 void showActiveCheckBox(CHECK_BOX* checkBox)
 {
 	gotoxy(checkBox->x, checkBox->y);
-	changeColor(BLACK, LIGHT_WHITE);
+
+	if (checkBox->color == LIGHT_WHITE)
+	{
+		changeColor(BLACK, LIGHT_WHITE);
+	}
+	else
+	{
+		changeColor(checkBox->color, LIGHT_WHITE);
+	}
+
 	if (checkBox->isChecked == CHECKED)
 	{
 		printf("□");
@@ -637,6 +677,7 @@ void showActiveCheckBox(CHECK_BOX* checkBox)
 	{
 		printf("■");
 	}
+
 	changeColor(LIGHT_WHITE, BLACK);
 
 	showMessage("방향키를 통해 이동할 수 있습니다. 엔터를 눌러 상호작용할 수 있습니다. □ : 선택 안됨, ■ : 선택됨");
@@ -652,7 +693,23 @@ void clickCheckBox(CHECK_BOX* checkBox)
 		}
 		else
 		{
-			checkBox->isChecked = CHECKED;
+			int numberOfCheck = 0;
+
+			for (int row = 0; row < MAX_ROW_OF_CHECK_BOX_SET; row++)
+			{
+				for (int col = 0; col < MAX_COLUMN_OF_CHECK_BOX_SET; col++)
+				{
+					if (checkBox->checkBoxSet[row][col] != NULL && checkBox->checkBoxSet[row][col]->isChecked == CHECKED)
+					{
+						numberOfCheck++;
+					}
+				}
+			}
+			
+			if (checkBox->maxNumberOfCheck > numberOfCheck)
+			{
+				checkBox->isChecked = CHECKED;
+			}
 		}
 	}
 

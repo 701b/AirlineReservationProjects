@@ -6,7 +6,7 @@
 #define INITIAL_NUMBER_OF_CITY 26
 #define INITIAL_NUMBER_OF_DIRECT_PATH 100
 
-#define RANDOM_LENGTH_OF_STR rand() % 10 + 4
+#define RANDOM_LENGTH_OF_STR rand() % 6 + 4
 #define RANDOM_INTEGER(max) rand() % max
 #define RANDOM_CHARACTER (rand() % ('z' - 'a')) + 'a'
 
@@ -126,36 +126,72 @@ LINKED_LIST* initflightList(CITY_GRAPH* cityGraph, int day)
 RESERVATION_RECORD* initReservationRecord(LINKED_LIST* flightList[], CITY_GRAPH* cityGraph)
 {
 	RESERVATION_RECORD* record = generateReservationRecord();
+	RESERVATION* reservations[500];
 
 	srand(time(NULL));
 
 	for (int i = 0; i < INITIAL_NUMBER_OF_RESERVATION; i++)
 	{
-		char* name = generateRandomStr(RANDOM_LENGTH_OF_STR);
-		TIME* departureTime = generateTime(1, RANDOM_INTEGER(30) + 1, RANDOM_INTEGER(24), RANDOM_INTEGER(60));
+		char* firstName;
+		char* lastName;
+		int sex;
+		TIME* departureTime;
 		CITY* source = getFromCityGraph(cityGraph, RANDOM_INTEGER('z' - 'a'));
 		CITY* destination = getFromCityGraph(cityGraph, RANDOM_INTEGER('z' - 'a'));
+		int seatClass;
 		PATH* path;
 
 		if (source == destination)
 		{
 			i--;
-			free(departureTime);
-			free(name);
 			continue;
 		}
 
-		path = findPathForShortestFlightTime(flightList, departureTime, source, destination);
+		departureTime = generateTime(1, RANDOM_INTEGER(30) + 1, 0, 0);
+		seatClass = RANDOM_INTEGER(3);
+		path = findPathForShortestFlightTime(flightList, departureTime, source, destination, seatClass);
 
 		if (path == NULL)
 		{
 			i--;
-			free(departureTime);
-			free(name);
 			freePath(&path);
+			continue;
 		}
 
-		addToRecord(record, name, path);
+		firstName = generateRandomStr(RANDOM_LENGTH_OF_STR);
+		lastName = generateRandomStr(RANDOM_LENGTH_OF_STR);
+		sex = RANDOM_INTEGER(2) + 1;
+
+		{
+			PATH* temp = path;
+			ITERATOR* iterator;
+
+			path = generateDeepClonePath(temp);
+			freePath(&temp);
+
+			iterator = generateIterator(path->flightList);
+
+			for (FLIGHT* flight = getNextData(iterator); flight != NULL; flight = getNextData(iterator))
+			{
+				int maxRow = getRowOfAirplaneSeat(flight->airplane, seatClass);
+				int maxCol = getColumnOfAirplaneSeat(flight->airplane, seatClass);
+				int row;
+				int col;
+				
+				do
+				{
+					row = RANDOM_INTEGER(maxRow);
+					col = RANDOM_INTEGER(maxCol);
+				} while (getSeatAvailable(flight->airplane, seatClass, row, col) == NO_SEAT);
+
+				setSeat(flight, seatClass, row, col, NO_SEAT);
+			}
+		}
+
+		reservations[i] = addToRecord(record, firstName, lastName, sex, path);
+
+		gotoxy(25, 3);
+		printf("%d/500", i + 1);
 	}
 
 	return record;

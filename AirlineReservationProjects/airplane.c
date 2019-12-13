@@ -44,21 +44,25 @@
 
 
 
-void allocateMemoryToSeats(int*** seats, int row, int column)
+int** allocateMemoryToSeats(int row, int column)
 {
+	int** seats;
+
 	if (row != 0)
 	{
-		*seats = malloc(row * sizeof(int*));
+		seats = malloc(row * sizeof(int*));
 
 		for (int i = 0; i < row; i++)
 		{
-			(*seats)[i] = calloc(column, sizeof(int));
+			seats[i] = calloc(column, sizeof(int));
 		}
 	}
 	else
 	{
-		*seats = NULL;
+		seats = NULL;
 	}
+
+	return seats;
 }
 
 AIRPLANE* generateAirplane(int kindsOfAirplane)
@@ -70,200 +74,38 @@ AIRPLANE* generateAirplane(int kindsOfAirplane)
 	switch (kindsOfAirplane)
 	{
 		case BOEING_777:
-			allocateMemoryToSeats(&(airplane->firstClass), MAX_ROW_OF_FIRST_CLASS_SEATS_OF_BOEING_777, MAX_COLUMN_OF_FIRST_CLASS_SEATS_OF_BOEING_777);
-			allocateMemoryToSeats(&(airplane->businessClass), MAX_ROW_OF_BUSINESS_CLASS_SEATS_OF_BOEING_777, MAX_COLUMN_OF_BUSINESS_CLASS_SEATS_OF_BOEING_777);
-			allocateMemoryToSeats(&(airplane->economyClass), MAX_ROW_OF_ECONOMY_CLASS_SEATS_OF_BOEING_777, MAX_COLUMN_OF_ECONOMY_CLASS_SEATS_OF_BOEING_777);
+			airplane->firstClass = allocateMemoryToSeats(MAX_ROW_OF_FIRST_CLASS_SEATS_OF_BOEING_777, MAX_COLUMN_OF_FIRST_CLASS_SEATS_OF_BOEING_777);
+			airplane->businessClass = allocateMemoryToSeats(MAX_ROW_OF_BUSINESS_CLASS_SEATS_OF_BOEING_777, MAX_COLUMN_OF_BUSINESS_CLASS_SEATS_OF_BOEING_777);
+			airplane->economyClass = allocateMemoryToSeats(MAX_ROW_OF_ECONOMY_CLASS_SEATS_OF_BOEING_777, MAX_COLUMN_OF_ECONOMY_CLASS_SEATS_OF_BOEING_777);
 			break;
 		case BOEING_737:
-			allocateMemoryToSeats(&(airplane->firstClass), MAX_ROW_OF_FIRST_CLASS_SEATS_OF_BOEING_737, MAX_COLUMN_OF_FIRST_CLASS_SEATS_OF_BOEING_737);
-			allocateMemoryToSeats(&(airplane->businessClass), MAX_ROW_OF_BUSINESS_CLASS_SEATS_OF_BOEING_737, MAX_COLUMN_OF_BUSINESS_CLASS_SEATS_OF_BOEING_737);
-			allocateMemoryToSeats(&(airplane->economyClass), MAX_ROW_OF_ECONOMY_CLASS_SEATS_OF_BOEING_737, MAX_COLUMN_OF_ECONOMY_CLASS_SEATS_OF_BOEING_737);
+			airplane->firstClass = allocateMemoryToSeats(MAX_ROW_OF_FIRST_CLASS_SEATS_OF_BOEING_737, MAX_COLUMN_OF_FIRST_CLASS_SEATS_OF_BOEING_737);
+			airplane->businessClass = allocateMemoryToSeats(MAX_ROW_OF_BUSINESS_CLASS_SEATS_OF_BOEING_737, MAX_COLUMN_OF_BUSINESS_CLASS_SEATS_OF_BOEING_737);
+			airplane->economyClass = allocateMemoryToSeats(MAX_ROW_OF_ECONOMY_CLASS_SEATS_OF_BOEING_737, MAX_COLUMN_OF_ECONOMY_CLASS_SEATS_OF_BOEING_737);
 			break;
 		case BOEING_747:
-			allocateMemoryToSeats(&(airplane->firstClass), MAX_ROW_OF_FIRST_CLASS_SEATS_OF_BOEING_747, MAX_COLUMN_OF_FIRST_CLASS_SEATS_OF_BOEING_747);
-			allocateMemoryToSeats(&(airplane->businessClass), MAX_ROW_OF_BUSINESS_CLASS_SEATS_OF_BOEING_747, MAX_COLUMN_OF_BUSINESS_CLASS_SEATS_OF_BOEING_747);
-			allocateMemoryToSeats(&(airplane->economyClass), MAX_ROW_OF_ECONOMY_CLASS_SEATS_OF_BOEING_747, MAX_COLUMN_OF_ECONOMY_CLASS_SEATS_OF_BOEING_747);
+			airplane->firstClass = allocateMemoryToSeats(MAX_ROW_OF_FIRST_CLASS_SEATS_OF_BOEING_747, MAX_COLUMN_OF_FIRST_CLASS_SEATS_OF_BOEING_747);
+			airplane->businessClass = allocateMemoryToSeats(MAX_ROW_OF_BUSINESS_CLASS_SEATS_OF_BOEING_747, MAX_COLUMN_OF_BUSINESS_CLASS_SEATS_OF_BOEING_747);
+			airplane->economyClass = allocateMemoryToSeats(MAX_ROW_OF_ECONOMY_CLASS_SEATS_OF_BOEING_747, MAX_COLUMN_OF_ECONOMY_CLASS_SEATS_OF_BOEING_747);
 			break;
 		case AIRBUS_330:
-			allocateMemoryToSeats(&(airplane->firstClass), MAX_ROW_OF_FIRST_CLASS_SEATS_OF_AIRBUS_330, MAX_COLUMN_OF_FIRST_CLASS_SEATS_OF_AIRBUS_330);
-			allocateMemoryToSeats(&(airplane->businessClass), MAX_ROW_OF_BUSINESS_CLASS_SEATS_OF_AIRBUS_330, MAX_COLUMN_OF_BUSINESS_CLASS_SEATS_OF_AIRBUS_330);
-			allocateMemoryToSeats(&(airplane->economyClass), MAX_ROW_OF_ECONOMY_CLASS_SEATS_OF_AIRBUS_330, MAX_COLUMN_OF_ECONOMY_CLASS_SEATS_OF_AIRBUS_330);
+			airplane->firstClass = allocateMemoryToSeats(MAX_ROW_OF_FIRST_CLASS_SEATS_OF_AIRBUS_330, MAX_COLUMN_OF_FIRST_CLASS_SEATS_OF_AIRBUS_330);
+			airplane->businessClass = allocateMemoryToSeats(MAX_ROW_OF_BUSINESS_CLASS_SEATS_OF_AIRBUS_330, MAX_COLUMN_OF_BUSINESS_CLASS_SEATS_OF_AIRBUS_330);
+			airplane->economyClass = allocateMemoryToSeats(MAX_ROW_OF_ECONOMY_CLASS_SEATS_OF_AIRBUS_330, MAX_COLUMN_OF_ECONOMY_CLASS_SEATS_OF_AIRBUS_330);
 			break;
 		case AIRBUS_380:
-			allocateMemoryToSeats(&(airplane->firstClass), MAX_ROW_OF_FIRST_CLASS_SEATS_OF_AIRBUS_380, MAX_COLUMN_OF_FIRST_CLASS_SEATS_OF_AIRBUS_380);
-			allocateMemoryToSeats(&(airplane->businessClass), MAX_ROW_OF_BUSINESS_CLASS_SEATS_OF_AIRBUS_380, MAX_COLUMN_OF_BUSINESS_CLASS_SEATS_OF_AIRBUS_380);
-			allocateMemoryToSeats(&(airplane->economyClass), MAX_ROW_OF_ECONOMY_CLASS_SEATS_OF_AIRBUS_380, MAX_COLUMN_OF_ECONOMY_CLASS_SEATS_OF_AIRBUS_380);
+			airplane->firstClass = allocateMemoryToSeats(MAX_ROW_OF_FIRST_CLASS_SEATS_OF_AIRBUS_380, MAX_COLUMN_OF_FIRST_CLASS_SEATS_OF_AIRBUS_380);
+			airplane->businessClass = allocateMemoryToSeats(MAX_ROW_OF_BUSINESS_CLASS_SEATS_OF_AIRBUS_380, MAX_COLUMN_OF_BUSINESS_CLASS_SEATS_OF_AIRBUS_380);
+			airplane->economyClass = allocateMemoryToSeats(MAX_ROW_OF_ECONOMY_CLASS_SEATS_OF_AIRBUS_380, MAX_COLUMN_OF_ECONOMY_CLASS_SEATS_OF_AIRBUS_380);
 			break;
 		case AIRBUS_220:
-			allocateMemoryToSeats(&(airplane->firstClass), MAX_ROW_OF_FIRST_CLASS_SEATS_OF_AIRBUS_220, MAX_COLUMN_OF_FIRST_CLASS_SEATS_OF_AIRBUS_220);
-			allocateMemoryToSeats(&(airplane->businessClass), MAX_ROW_OF_BUSINESS_CLASS_SEATS_OF_AIRBUS_220, MAX_COLUMN_OF_BUSINESS_CLASS_SEATS_OF_AIRBUS_220);
-			allocateMemoryToSeats(&(airplane->economyClass), MAX_ROW_OF_ECONOMY_CLASS_SEATS_OF_AIRBUS_220, MAX_COLUMN_OF_ECONOMY_CLASS_SEATS_OF_AIRBUS_220);
+			airplane->firstClass = allocateMemoryToSeats(MAX_ROW_OF_FIRST_CLASS_SEATS_OF_AIRBUS_220, MAX_COLUMN_OF_FIRST_CLASS_SEATS_OF_AIRBUS_220);
+			airplane->businessClass = allocateMemoryToSeats(MAX_ROW_OF_BUSINESS_CLASS_SEATS_OF_AIRBUS_220, MAX_COLUMN_OF_BUSINESS_CLASS_SEATS_OF_AIRBUS_220);
+			airplane->economyClass = allocateMemoryToSeats(MAX_ROW_OF_ECONOMY_CLASS_SEATS_OF_AIRBUS_220, MAX_COLUMN_OF_ECONOMY_CLASS_SEATS_OF_AIRBUS_220);
 			break;
 	}
 
 	return airplane;
-}
-
-int getSeatsOfClass(AIRPLANE* airplane, int seatClass)
-{
-	int seats = 0;
-	int maxRow;
-	int maxCol;
-
-	switch (airplane->kindsOfAirplane)
-	{
-		case BOEING_777:
-			switch (seatClass)
-			{
-				case FIRST_CLASS:
-					maxRow = MAX_ROW_OF_FIRST_CLASS_SEATS_OF_BOEING_777;
-					maxCol = MAX_COLUMN_OF_FIRST_CLASS_SEATS_OF_BOEING_777;
-					break;
-
-				case BUSINESS_CLASS:
-					maxRow = MAX_ROW_OF_BUSINESS_CLASS_SEATS_OF_BOEING_777;
-					maxCol = MAX_COLUMN_OF_BUSINESS_CLASS_SEATS_OF_BOEING_777;
-					break;
-
-				case ECONOMY_CLASS:
-					maxRow = MAX_ROW_OF_ECONOMY_CLASS_SEATS_OF_BOEING_777;
-					maxCol = MAX_COLUMN_OF_ECONOMY_CLASS_SEATS_OF_BOEING_777;
-					break;
-			}
-			break;
-
-		case BOEING_737:
-			switch (seatClass)
-			{
-				case FIRST_CLASS:
-					maxRow = MAX_ROW_OF_FIRST_CLASS_SEATS_OF_BOEING_737;
-					maxCol = MAX_COLUMN_OF_FIRST_CLASS_SEATS_OF_BOEING_737;
-					break;
-
-				case BUSINESS_CLASS:
-					maxRow = MAX_ROW_OF_BUSINESS_CLASS_SEATS_OF_BOEING_737;
-					maxCol = MAX_COLUMN_OF_BUSINESS_CLASS_SEATS_OF_BOEING_737;
-					break;
-
-				case ECONOMY_CLASS:
-					maxRow = MAX_ROW_OF_ECONOMY_CLASS_SEATS_OF_BOEING_737;
-					maxCol = MAX_COLUMN_OF_ECONOMY_CLASS_SEATS_OF_BOEING_737;
-					break;
-			}
-			break;
-
-		case BOEING_747:
-			switch (seatClass)
-			{
-				case FIRST_CLASS:
-					maxRow = MAX_ROW_OF_FIRST_CLASS_SEATS_OF_BOEING_747;
-					maxCol = MAX_COLUMN_OF_FIRST_CLASS_SEATS_OF_BOEING_747;
-					break;
-
-				case BUSINESS_CLASS:
-					maxRow = MAX_ROW_OF_BUSINESS_CLASS_SEATS_OF_BOEING_747;
-					maxCol = MAX_COLUMN_OF_BUSINESS_CLASS_SEATS_OF_BOEING_747;
-					break;
-
-				case ECONOMY_CLASS:
-					maxRow = MAX_ROW_OF_ECONOMY_CLASS_SEATS_OF_BOEING_747;
-					maxCol = MAX_COLUMN_OF_ECONOMY_CLASS_SEATS_OF_BOEING_747;
-					break;
-			}
-			break;
-
-		case AIRBUS_330:
-			switch (seatClass)
-			{
-				case FIRST_CLASS:
-					maxRow = MAX_ROW_OF_FIRST_CLASS_SEATS_OF_AIRBUS_330;
-					maxCol = MAX_COLUMN_OF_FIRST_CLASS_SEATS_OF_AIRBUS_330;
-					break;
-
-				case BUSINESS_CLASS:
-					maxRow = MAX_ROW_OF_BUSINESS_CLASS_SEATS_OF_AIRBUS_330;
-					maxCol = MAX_COLUMN_OF_BUSINESS_CLASS_SEATS_OF_AIRBUS_330;
-					break;
-
-				case ECONOMY_CLASS:
-					maxRow = MAX_ROW_OF_ECONOMY_CLASS_SEATS_OF_AIRBUS_330;
-					maxCol = MAX_COLUMN_OF_ECONOMY_CLASS_SEATS_OF_AIRBUS_330;
-					break;
-			}
-			break;
-
-		case AIRBUS_380:
-			switch (seatClass)
-			{
-				case FIRST_CLASS:
-					maxRow = MAX_ROW_OF_FIRST_CLASS_SEATS_OF_AIRBUS_380;
-					maxCol = MAX_COLUMN_OF_FIRST_CLASS_SEATS_OF_AIRBUS_380;
-					break;
-
-				case BUSINESS_CLASS:
-					maxRow = MAX_ROW_OF_BUSINESS_CLASS_SEATS_OF_AIRBUS_380;
-					maxCol = MAX_COLUMN_OF_BUSINESS_CLASS_SEATS_OF_AIRBUS_380;
-					break;
-
-				case ECONOMY_CLASS:
-					maxRow = MAX_ROW_OF_ECONOMY_CLASS_SEATS_OF_AIRBUS_380;
-					maxCol = MAX_COLUMN_OF_ECONOMY_CLASS_SEATS_OF_AIRBUS_380;
-					break;
-			}
-			break;
-
-		case AIRBUS_220:
-			switch (seatClass)
-			{
-				case FIRST_CLASS:
-					maxRow = MAX_ROW_OF_FIRST_CLASS_SEATS_OF_AIRBUS_220;
-					maxCol = MAX_COLUMN_OF_FIRST_CLASS_SEATS_OF_AIRBUS_220;
-					break;
-
-				case BUSINESS_CLASS:
-					maxRow = MAX_ROW_OF_BUSINESS_CLASS_SEATS_OF_AIRBUS_220;
-					maxCol = MAX_COLUMN_OF_BUSINESS_CLASS_SEATS_OF_AIRBUS_220;
-					break;
-
-				case ECONOMY_CLASS:
-					maxRow = MAX_ROW_OF_ECONOMY_CLASS_SEATS_OF_AIRBUS_220;
-					maxCol = MAX_COLUMN_OF_ECONOMY_CLASS_SEATS_OF_AIRBUS_220;
-					break;
-			}
-			break;
-	}
-
-	for (int row = 0; row < maxRow; row++)
-	{
-		for (int col = 0; col < maxCol; col++)
-		{
-			switch (seatClass)
-			{
-				case FIRST_CLASS:
-					if (airplane->firstClass[row][col] == SEAT_AVAILABLE)
-					{
-						seats++;
-					}
-					break;
-
-				case BUSINESS_CLASS:
-					if (airplane->businessClass[row][col] == SEAT_AVAILABLE)
-					{
-						seats++;
-					}
-					break;
-
-				case ECONOMY_CLASS:
-					if (airplane->economyClass[row][col] == SEAT_AVAILABLE)
-					{
-						seats++;
-					}
-					break;
-			}
-		}
-	}
-
-	return seats;
 }
 
 char* getStrOfAirplane(AIRPLANE* airplane)
@@ -300,3 +142,257 @@ char* getStrOfAirplane(AIRPLANE* airplane)
 	return str;
 }
 
+char* getStrOfSeatClass(int seatClass)
+{
+	switch (seatClass)
+	{
+	case FIRST_CLASS:
+		return "일등석";
+
+	case BUSINESS_CLASS:
+		return "비즈니스석";
+
+	case ECONOMY_CLASS:
+		return "일반석";
+	}
+}
+
+int getRowOfAirplaneSeat(AIRPLANE* airplane, int seatClass)
+{
+	switch (airplane->kindsOfAirplane)
+	{
+	case BOEING_777:
+		switch (seatClass)
+		{
+		case FIRST_CLASS:
+			return MAX_ROW_OF_FIRST_CLASS_SEATS_OF_BOEING_777;
+
+		case BUSINESS_CLASS:
+			return MAX_ROW_OF_BUSINESS_CLASS_SEATS_OF_BOEING_777;
+
+		case ECONOMY_CLASS:
+			return MAX_ROW_OF_ECONOMY_CLASS_SEATS_OF_BOEING_777;
+		}
+		break;
+
+	case BOEING_737:
+		switch (seatClass)
+		{
+		case FIRST_CLASS:
+			return MAX_ROW_OF_FIRST_CLASS_SEATS_OF_BOEING_737;
+
+		case BUSINESS_CLASS:
+			return MAX_ROW_OF_BUSINESS_CLASS_SEATS_OF_BOEING_737;
+
+		case ECONOMY_CLASS:
+			return MAX_ROW_OF_ECONOMY_CLASS_SEATS_OF_BOEING_737;
+		}
+		break;
+
+	case BOEING_747:
+		switch (seatClass)
+		{
+		case FIRST_CLASS:
+			return MAX_ROW_OF_FIRST_CLASS_SEATS_OF_BOEING_747;
+
+		case BUSINESS_CLASS:
+			return MAX_ROW_OF_BUSINESS_CLASS_SEATS_OF_BOEING_747;
+
+		case ECONOMY_CLASS:
+			return MAX_ROW_OF_ECONOMY_CLASS_SEATS_OF_BOEING_747;
+		}
+		break;
+
+	case AIRBUS_330:
+		switch (seatClass)
+		{
+		case FIRST_CLASS:
+			return MAX_ROW_OF_FIRST_CLASS_SEATS_OF_AIRBUS_330;
+
+		case BUSINESS_CLASS:
+			return MAX_ROW_OF_BUSINESS_CLASS_SEATS_OF_AIRBUS_330;
+
+		case ECONOMY_CLASS:
+			return MAX_ROW_OF_ECONOMY_CLASS_SEATS_OF_AIRBUS_330;
+		}
+		break;
+
+	case AIRBUS_380:
+		switch (seatClass)
+		{
+		case FIRST_CLASS:
+			return MAX_ROW_OF_FIRST_CLASS_SEATS_OF_AIRBUS_380;
+
+		case BUSINESS_CLASS:
+			return MAX_ROW_OF_BUSINESS_CLASS_SEATS_OF_AIRBUS_380;
+
+		case ECONOMY_CLASS:
+			return MAX_ROW_OF_ECONOMY_CLASS_SEATS_OF_AIRBUS_380;
+		}
+		break;
+
+	case AIRBUS_220:
+		switch (seatClass)
+		{
+		case FIRST_CLASS:
+			return MAX_ROW_OF_FIRST_CLASS_SEATS_OF_AIRBUS_220;
+
+		case BUSINESS_CLASS:
+			return MAX_ROW_OF_BUSINESS_CLASS_SEATS_OF_AIRBUS_220;
+
+		case ECONOMY_CLASS:
+			return MAX_ROW_OF_ECONOMY_CLASS_SEATS_OF_AIRBUS_220;
+		}
+		break;
+
+	default:
+		return 0;
+	}
+}
+
+int getColumnOfAirplaneSeat(AIRPLANE* airplane, int seatClass)
+{
+	switch (airplane->kindsOfAirplane)
+	{
+	case BOEING_777:
+		switch (seatClass)
+		{
+		case FIRST_CLASS:
+			return MAX_COLUMN_OF_FIRST_CLASS_SEATS_OF_BOEING_777;
+
+		case BUSINESS_CLASS:
+			return MAX_COLUMN_OF_BUSINESS_CLASS_SEATS_OF_BOEING_777;
+
+		case ECONOMY_CLASS:
+			return MAX_COLUMN_OF_ECONOMY_CLASS_SEATS_OF_BOEING_777;
+		}
+		break;
+
+	case BOEING_737:
+		switch (seatClass)
+		{
+		case FIRST_CLASS:
+			return MAX_COLUMN_OF_FIRST_CLASS_SEATS_OF_BOEING_737;
+
+		case BUSINESS_CLASS:
+			return MAX_COLUMN_OF_BUSINESS_CLASS_SEATS_OF_BOEING_737;
+
+		case ECONOMY_CLASS:
+			return MAX_COLUMN_OF_ECONOMY_CLASS_SEATS_OF_BOEING_737;
+		}
+		break;
+
+	case BOEING_747:
+		switch (seatClass)
+		{
+		case FIRST_CLASS:
+			return MAX_COLUMN_OF_FIRST_CLASS_SEATS_OF_BOEING_747;
+
+		case BUSINESS_CLASS:
+			return MAX_COLUMN_OF_BUSINESS_CLASS_SEATS_OF_BOEING_747;
+
+		case ECONOMY_CLASS:
+			return MAX_COLUMN_OF_ECONOMY_CLASS_SEATS_OF_BOEING_747;
+		}
+		break;
+
+	case AIRBUS_330:
+		switch (seatClass)
+		{
+		case FIRST_CLASS:
+			return MAX_COLUMN_OF_FIRST_CLASS_SEATS_OF_AIRBUS_330;
+
+		case BUSINESS_CLASS:
+			return MAX_COLUMN_OF_BUSINESS_CLASS_SEATS_OF_AIRBUS_330;
+
+		case ECONOMY_CLASS:
+			return MAX_COLUMN_OF_ECONOMY_CLASS_SEATS_OF_AIRBUS_330;
+		}
+		break;
+
+	case AIRBUS_380:
+		switch (seatClass)
+		{
+		case FIRST_CLASS:
+			return MAX_COLUMN_OF_FIRST_CLASS_SEATS_OF_AIRBUS_380;
+
+		case BUSINESS_CLASS:
+			return MAX_COLUMN_OF_BUSINESS_CLASS_SEATS_OF_AIRBUS_380;
+
+		case ECONOMY_CLASS:
+			return MAX_COLUMN_OF_ECONOMY_CLASS_SEATS_OF_AIRBUS_380;
+		}
+		break;
+
+	case AIRBUS_220:
+		switch (seatClass)
+		{
+		case FIRST_CLASS:
+			return MAX_COLUMN_OF_FIRST_CLASS_SEATS_OF_AIRBUS_220;
+
+		case BUSINESS_CLASS:
+			return MAX_COLUMN_OF_BUSINESS_CLASS_SEATS_OF_AIRBUS_220;
+
+		case ECONOMY_CLASS:
+			return MAX_COLUMN_OF_ECONOMY_CLASS_SEATS_OF_AIRBUS_220;
+		}
+		break;
+
+	default:
+		return 0;
+	}
+}
+
+int getNumberOfSeatsOfClass(AIRPLANE* airplane, int seatClass)
+{
+	int seats = 0;
+	int maxRow = getRowOfAirplaneSeat(airplane, seatClass);
+	int maxCol = getColumnOfAirplaneSeat(airplane, seatClass);
+
+	for (int row = 0; row < maxRow; row++)
+	{
+		for (int col = 0; col < maxCol; col++)
+		{
+			switch (seatClass)
+			{
+			case FIRST_CLASS:
+				if (airplane->firstClass[row][col] == SEAT_AVAILABLE)
+				{
+					seats++;
+				}
+				break;
+
+			case BUSINESS_CLASS:
+				if (airplane->businessClass[row][col] == SEAT_AVAILABLE)
+				{
+					seats++;
+				}
+				break;
+
+			case ECONOMY_CLASS:
+				if (airplane->economyClass[row][col] == SEAT_AVAILABLE)
+				{
+					seats++;
+				}
+				break;
+			}
+		}
+	}
+
+	return seats;
+}
+
+int getSeatAvailable(AIRPLANE* airplane, int seatClass, int row, int column)
+{
+	switch (seatClass)
+	{
+	case FIRST_CLASS:
+		return airplane->firstClass[row][column];
+
+	case BUSINESS_CLASS:
+		return airplane->businessClass[row][column];
+
+	case ECONOMY_CLASS:
+		return airplane->economyClass[row][column];
+	}
+}

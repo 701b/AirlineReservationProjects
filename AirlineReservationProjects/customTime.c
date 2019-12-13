@@ -94,11 +94,20 @@ int compareTime(TIME* time1, TIME* time2)
 char* timeToStr(TIME* time)
 {
 	char* result = calloc(16, sizeof(char));
+	char month[6] = "";
+	char day[6] = "";
 	char hour[3] = "";
 	char minute[3] = "";
 
+	sprintf(month, "%d월", time->month);
+	sprintf(day, "%d일", time->day);
 	sprintf(hour, "%d", time->hour);
 	sprintf(minute, "%d", time->minute);
+
+	if (strlen(day) == 3)
+	{
+		strcat(day, " ");
+	}
 
 	if (strlen(hour) == 1)
 	{
@@ -112,7 +121,7 @@ char* timeToStr(TIME* time)
 		minute[0] = '0';
 	}
 
-	sprintf(result, "%d월 %d일 %s:%s", time->month, time->day, hour, minute);
+	sprintf(result, "%s %s %s:%s", month, day, hour, minute);
 
 	return result;
 }

@@ -1,10 +1,3 @@
-/*
-flight.h
-
-내부에 전역 변수 LINKED_LIST* flightList가 선언되어 있다.
-이것은 생성된 모든 FLIGHT을 담는다.
-*/
-
 #pragma once
 
 #include "linkedList.h"
@@ -47,9 +40,16 @@ flightList에 같은 출발지, 도착지, 출발시간을 갖는 것이 있는지 찾는다.
 int findFromFlightList(LINKED_LIST* flightList, CITY* source, CITY* destination, TIME* departureTime);
 
 /*
-좌석을 지정하고, 해당 항공기의 지정 좌석을 자리 없음으로 바꾼다. */
-void setSeat(FLIGHT* flight, int seatClass, int seatRowNumber, int seatColumnNumber);
+좌석을 지정하고, 해당 항공기의 지정 좌석의 상태를 seatStatus로 바꾼다 */
+void setSeat(FLIGHT* flight, int seatClass, int seatRowNumber, int seatColumnNumber, int seatStatus);
 
 /*
-*/
+flight의 운항 정보를 문자열로 반환한다.
+previousFlight는 날짜가 넘어갔는지 표시하기 위해서 쓰인다.
+seatClass를 이용하여 특정 좌석등급의 잔여 좌석을 표시한다.
+seatClass에 -1이 들어가면 좌석번호를 표시한다. */
 char* flightToStr(FLIGHT* flight, FLIGHT* previousFlight, int seatClass);
+
+/*
+flight의 메모리를 해제한다. */
+void freeFlight(FLIGHT** flight);

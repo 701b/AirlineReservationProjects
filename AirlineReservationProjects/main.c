@@ -4,9 +4,7 @@
 
 int main()
 {
-	freopen("output.txt", "w", stdout);
-
-	showMain();
+	run();
 
 	return 0;
 }

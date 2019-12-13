@@ -25,6 +25,10 @@ path를 복제하여 반환한다. */
 PATH* generateClonePath(PATH* path);
 
 /*
+path안의 flight도 함께 복제하여 반환한다. */
+PATH* generateDeepClonePath(PATH* path);
+
+/*
 path가 비어있다면 그냥 추가한다.
 비어있지 않고, path안의 flight중 마지막의 목적지가 추가될 flight의 출발지가 같고,
 추가될 flight의 출발 시간이 flight마지막 flight의 도착 시간보다 나중인 경우에 추가한다.
@@ -68,14 +72,14 @@ LINKED_LIST* findAllPath(LINKED_LIST* flightList[], TIME* departureTime, CITY* s
 depatureTime보다 늦는 FLIGHT들로부터 출발지가 source이고 도착지가 destination이 되도록
 FLIGHT이 구성된 PATH를 만들어 반환한다. 
 경로가 없다면 NULL을 반환한다. */
-PATH* findPathForShortestFlightTime(LINKED_LIST* flightList[], TIME* departureTime, CITY* source, CITY* destination);
+PATH* findPathForShortestFlightTime(LINKED_LIST* flightList[], TIME* departureTime, CITY* source, CITY* destination, int seatClass);
 
 /*
 path의 메모리를 해제한다. */
 void freePath(PATH** path);
 
 /*
-path를 간략하게 문자열로 변환하여 반환한다. 
+path를 간략하게 한줄의 문자열로 변환하여 반환한다. 
 출발지 출발시간 -- 소요 시간 (경유지 수) --> 도착시간 도착지 좌석등급
 seatClassStr이 NULL이면 좌석등급이 표시되지 않는다. */
 char* pathToStr(PATH* path, char* seatClassStr);

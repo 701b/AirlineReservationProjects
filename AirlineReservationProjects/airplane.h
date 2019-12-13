@@ -23,12 +23,30 @@ typedef struct airplane
 	int** economyClass;
 } AIRPLANE;
 
+/*
+AIRPLANE 구조체를 만들어 초기화하고 반환한다.*/
 AIRPLANE* generateAirplane(int kindsOfAirplane);
 
-int getSeatsOfClass(AIRPLANE* airplane, int seatClass);
-
+/*
+airplane의 기종을 문자열로 반환한다. */
 char* getStrOfAirplane(AIRPLANE* airplane);
 
+/*
+좌석 등급을 문자열로 반환한다. */
+char* getStrOfSeatClass(int seatClass);
+
+/*
+airplane의 seatClass의 좌석의 행을 반환한다. */
 int getRowOfAirplaneSeat(AIRPLANE* airplane, int seatClass);
 
+/*
+airplane의 seatClass의 좌석의 열을 반환한다. */
 int getColumnOfAirplaneSeat(AIRPLANE* airplane, int seatClass);
+
+/*
+airplane의 seatClass의 남은 좌석 수를 반환한다. */
+int getNumberOfSeatsOfClass(AIRPLANE* airplane, int seatClass);
+
+/*
+airplane의 seatClass의 row행 column열의 좌석 상태를 반환한다. */
+int getSeatAvailable(AIRPLANE* airplane, int seatClass, int row, int column);

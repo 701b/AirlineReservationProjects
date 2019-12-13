@@ -5,6 +5,8 @@
 #define BLACK 0
 #define RED 1
 
+#define SPACE_SIZE 2
+
 int compare(const void* a, const void* b) {
 	RESERVATION n1 = *(RESERVATION*)a;
 	RESERVATION n2 = *(RESERVATION*)b;
@@ -235,11 +237,13 @@ RBT_NODE* generateRBTNode(RESERVATION* reservation)
 	return rbtNode;
 }
 
-RESERVATION* generateReservation(RESERVATION_RECORD* reservationRecord, const char* name, PATH* path)
+RESERVATION* generateReservation(RESERVATION_RECORD* reservationRecord, const char* firstName, const char* lastName, int sex, PATH* path)
 {
 	RESERVATION* reservation = malloc(sizeof(RESERVATION));
 
-	reservation->name = name;
+	reservation->firstName = firstName;
+	reservation->lastName = lastName;
+	reservation->sex = sex;
 	reservation->path = path;
 	// 1 부터 차례대로 reservation Number로 설정
 	reservation->reservationNumber = reservationRecord->nextReservationNumber++;
@@ -257,12 +261,12 @@ RESERVATION_RECORD* generateReservationRecord()
 	return reservationRecord;
 }
 
-void addToRecord(RESERVATION_RECORD* rbt, const char* name, PATH* path)
+RESERVATION* addToRecord(RESERVATION_RECORD* reservationRecord, const char* firstName, const char* lastName, int sex, PATH* path)
 {
-	RBT_NODE* z = generateRBTNode(generateReservation(rbt, name, path));
+	RBT_NODE* z = generateRBTNode(generateReservation(reservationRecord, firstName, lastName, sex, path));
 	RBT_NODE* x, * y;
 	y = NULL;
-	x = rbt->root;
+	x = reservationRecord->root;
 	while (x != NULL) {
 		y = x;
 		if (compare(z->reservation, x->reservation) < 0)
@@ -272,7 +276,7 @@ void addToRecord(RESERVATION_RECORD* rbt, const char* name, PATH* path)
 	}
 	z->parent = y;
 	if (y == NULL) {
-		rbt->root = z;
+		reservationRecord->root = z;
 	}
 	else {
 		if (compare(z->reservation, y->reservation) < 0) {
@@ -285,7 +289,9 @@ void addToRecord(RESERVATION_RECORD* rbt, const char* name, PATH* path)
 	z->left = NULL;
 	z->right = NULL;
 	z->color = RED;
-	fixinsert(rbt, z);
+	fixinsert(reservationRecord, z);
+
+	return z->reservation;
 }
 RBT_NODE* RBTFind(RBT_NODE* root, RESERVATION* reservation)
 {
@@ -377,84 +383,128 @@ int removeFromRecord(RESERVATION_RECORD* reservationRecord, RESERVATION* reserva
 	return 1;
 }
 
-
-
-
-
-#define COMPACT
-
-int _print_t(RBT_NODE* tree, int is_left, int offset, int depth, char s[20][255])
+void printRBTRecursion(RBT_NODE* node, int space)
 {
-	char b[20];
-	int width = 5;
+	space += SPACE_SIZE;
 
-	if (!tree) return 0;
-
-	sprintf(b, "(%c%02d)", (tree->color == RED) ? 'R' : 'B', tree->reservation->reservationNumber);
-
-	int left = _print_t(tree->left, 1, offset, depth + 1, s);
-	int right = _print_t(tree->right, 0, offset + left + width, depth + 1, s);
-
-#ifdef COMPACT
-	for (int i = 0; i < width; i++)
-		s[depth][offset + left + i] = b[i];
-
-	if (depth && is_left) {
-
-		for (int i = 0; i < width + right; i++)
-			s[depth - 1][offset + left + width / 2 + i] = '-';
-
-		s[depth - 1][offset + left + width / 2] = '.';
-
+	if (node->right != NULL)
+	{
+		printRBTRecursion(node->right, space);
 	}
-	else if (depth && !is_left) {
 
-		for (int i = 0; i < left + width; i++)
-			s[depth - 1][offset - width / 2 + i] = '-';
-
-		s[depth - 1][offset + left + width / 2] = '.';
+	for (int i = 0; i < space - SPACE_SIZE; i++)
+	{
+		printf(" ");
 	}
-#else
-	for (int i = 0; i < width; i++)
-		s[2 * depth][offset + left + i] = b[i];
 
-	if (depth && is_left) {
-
-		for (int i = 0; i < width + right; i++)
-			s[2 * depth - 1][offset + left + width / 2 + i] = '-';
-
-		s[2 * depth - 1][offset + left + width / 2] = '+';
-		s[2 * depth - 1][offset + left + width + right + width / 2] = '+';
-
+	if (node->color == RED)
+	{
+		changeColor(LIGHT_RED, BLACK);
 	}
-	else if (depth && !is_left) {
 
-		for (int i = 0; i < left + width; i++)
-			s[2 * depth - 1][offset - width / 2 + i] = '-';
+	printf("%d\n", node->reservation->reservationNumber);
 
-		s[2 * depth - 1][offset + left + width / 2] = '+';
-		s[2 * depth - 1][offset - width / 2 - 1] = '+';
+	changeColor(LIGHT_WHITE, BLACK);
+
+	if (node->left != NULL)
+	{
+		printRBTRecursion(node->left, space);
 	}
-#endif
-
-	return left + width + right;
 }
 
 void printTree(RESERVATION_RECORD* reservationRecord)
 {
-	RBT_NODE* tree = reservationRecord->root;
-	char s[20][255];
-	for (int i = 0; i < 20; i++)
-		sprintf(s[i], "%80s", " ");
-
-	_print_t(tree, 0, 0, 0, s);
-
-	for (int i = 0; i < 20; i++)
-		printf("%s\n", s[i]);
+	printRBTRecursion(reservationRecord->root, 0);
 }
 
-RESERVATION** arrayFromRecord(RESERVATION_RECORD* reservationRecord)
+void subArrayFromRecord(RBT_NODE* root, LINKED_LIST* linkedList) {
+	if (root == NULL)
+		return;
+	subArrayFromRecord(root->left, linkedList);
+	addToList(linkedList, root->reservation);
+	subArrayFromRecord(root->right, linkedList);
+}
+
+LINKED_LIST* listFromRecord(RESERVATION_RECORD* reservationRecord)
 {
+	LINKED_LIST* linkedList = generateLinkedList();
 
+	subArrayFromRecord(reservationRecord->root, linkedList);
+
+	return linkedList;
 }
 
+void subTreeTraversal(RBT_NODE* root, int depth, int* depth_max, int* cnt) {
+	if (root == NULL)
+		return;
+
+	subTreeTraversal(root->left, depth + 1, depth_max, cnt);
+	if (depth > (*depth_max)) {
+		(*depth_max) = depth;
+	}
+	(*cnt)++;
+	subTreeTraversal(root->right, depth + 1, depth_max, cnt);
+}
+
+char* printTreeTraversal(RESERVATION_RECORD* reservationRecord) {
+	char* result = calloc(45, sizeof(char));
+	int* depth_max = (int*)malloc(sizeof(int));
+	int* cnt = (int*)malloc(sizeof(int));
+	*depth_max = *cnt = 0;
+
+	subTreeTraversal(reservationRecord->root, 1, depth_max, cnt);
+
+	sprintf(result, "%d of nodes, height of the tree: %d\n", (*cnt), (*depth_max));
+
+	free(cnt); free(depth_max);
+
+	return result;
+}
+
+char* reservationToStr(RESERVATION* reservation)
+{
+	char buffer[200] = "";
+	char temp[200] = "";
+	char* result;
+
+	// 예약번호
+	{
+		int length;
+		sprintf(temp, "%d", reservation->reservationNumber);
+		length = strlen(temp);
+
+		for (int i = 0; i < MAX_SPACE_OF_RESERVATION_NUMBER - length; i++)
+		{
+			strcat(temp, " ");
+		}
+
+		strcat(buffer, temp);
+	}
+
+	// 이름과 성
+	{
+		int length;
+		sprintf(temp, "%s %s", reservation->firstName, reservation->lastName);
+		length = strlen(temp);
+
+		for (int i = 0; i < MAX_SPACE_OF_NAME - length; i++)
+		{
+			strcat(temp, " ");
+		}
+
+		strcat(buffer, temp);
+	}
+
+	// path 정보
+	{
+		char* pathStr = pathToStr(reservation->path, getStrOfSeatClass(((FLIGHT*)getFirstFromList(reservation->path->flightList))->seatClass));
+
+		strcat(buffer, pathStr);
+		free(pathStr);
+	}
+
+	result = calloc(strlen(buffer) + 1, sizeof(char));
+	strcpy(result, buffer);
+	
+	return result;
+}

@@ -33,9 +33,13 @@ FLIGHT* generateFlight(CITY* source, CITY* destination, TIME* departureTime, AIR
 
 FLIGHT* generateCloneFlight(FLIGHT* flight)
 {
-	FLIGHT* cloneflight = generateFlight(flight->source, flight->destination, flight->departureTime, flight->airplane);
+	FLIGHT* cloneFlight = generateFlight(flight->source, flight->destination, generateCloneTime(flight->departureTime), flight->airplane);
 
-	return cloneflight;
+	cloneFlight->seatClass = flight->seatClass;
+	cloneFlight->seatRowNumber = flight->seatRowNumber;
+	cloneFlight->seatColumnNumber = flight->seatColumnNumber;
+
+	return cloneFlight;
 }
 
 void addToFlightList(LINKED_LIST* flightList, CITY* source, CITY* destination, TIME* departureTime, AIRPLANE* airplane)
@@ -67,7 +71,7 @@ int findFromFlightList(LINKED_LIST* flightList, CITY* source, CITY* destination,
 	return 0;
 }
 
-void setSeat(FLIGHT* flight, int seatClass, int seatRowNumber, int seatColumnNumber)
+void setSeat(FLIGHT* flight, int seatClass, int seatRowNumber, int seatColumnNumber, int seatStatus)
 {
 	flight->seatClass = seatClass;
 	flight->seatRowNumber = seatRowNumber;
@@ -76,15 +80,16 @@ void setSeat(FLIGHT* flight, int seatClass, int seatRowNumber, int seatColumnNum
 	switch (seatClass)
 	{
 		case FIRST_CLASS:
-			flight->airplane->firstClass[seatRowNumber][seatColumnNumber] = NO_SEAT;
+			flight->airplane->firstClass[seatRowNumber][seatColumnNumber] = seatStatus;
 			break;
 
 		case BUSINESS_CLASS:
-			flight->airplane->businessClass[seatRowNumber][seatColumnNumber] = NO_SEAT;
+			flight->airplane->businessClass[seatRowNumber][seatColumnNumber] = seatStatus;
 			break;
 
 		case ECONOMY_CLASS:
-			flight->airplane->economyClass[seatRowNumber][seatColumnNumber] = NO_SEAT;
+			flight->airplane->economyClass[seatRowNumber][seatColumnNumber] = seatStatus;
+			break;
 	}
 }
 
@@ -99,7 +104,7 @@ char* flightToStr(FLIGHT* flight, FLIGHT* previousFlight, int seatClass)
 	char destinationName = flight->destination->name;
 	TIME* elapsedTime = generateTime(0, 0, 0, 0);
 	int lengthOfSpace;
-	int seats = getSeatsOfClass(flight->airplane, seatClass);
+	int seats = getNumberOfSeatsOfClass(flight->airplane, seatClass);
 	char* result;
 
 	addToTimeByMinute(elapsedTime, calculateTimeDifference(flight->departureTime, flight->arrivalTime));
@@ -152,8 +157,16 @@ char* flightToStr(FLIGHT* flight, FLIGHT* previousFlight, int seatClass)
 		strcat(buffer, "    ");
 	}
 
-	sprintf(temp, " ÀÜ¿© %d¼®", seats);
-	strcat(buffer, temp);
+	if (seatClass != -1)
+	{
+		sprintf(temp, " ÀÜ¿© %d¼®", seats);
+		strcat(buffer, temp);
+	}
+	else
+	{
+		sprintf(temp, " %s %d%c", getStrOfSeatClass(flight->seatClass), flight->seatColumnNumber + 1, 'A' + flight->seatRowNumber);
+		strcat(buffer, temp);
+	}
 
 	result = calloc(sizeof(buffer) + 1, sizeof(char));
 	strcpy(result, buffer);
@@ -163,4 +176,15 @@ char* flightToStr(FLIGHT* flight, FLIGHT* previousFlight, int seatClass)
 	free(elapsedTime);
 	
 	return result;
+}
+
+void freeFlight(FLIGHT** flight)
+{
+	if (*flight != NULL)
+	{
+		free((*flight)->departureTime);
+		free((*flight)->arrivalTime);
+		free(*flight);
+		*flight = NULL;
+	}
 }

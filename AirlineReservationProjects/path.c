@@ -30,6 +30,20 @@ PATH* generateClonePath(PATH* path)
 	return clonePath;
 }
 
+PATH* generateDeepClonePath(PATH* path)
+{
+	PATH* clonePath = generatePath();
+
+	ITERATOR* iterator = generateIterator(path->flightList);
+
+	for (FLIGHT* flight = getNextData(iterator); flight != NULL; flight = getNextData(iterator))
+	{
+		addToPath(clonePath, generateCloneFlight(flight));
+	}
+
+	return clonePath;
+}
+
 int addToPath(PATH* path, FLIGHT* flight)
 {
 	FLIGHT* lastFlight = getLastFromList(path->flightList);
@@ -149,7 +163,7 @@ void findPathRecursive(LINKED_LIST* flightList[], TIME* departureTime, LINKED_LI
 			{
 				if (flight->source == source)
 				{
-					if (getSeatsOfClass(flight->airplane, seatClass) > 0)
+					if (getNumberOfSeatsOfClass(flight->airplane, seatClass) > 0)
 					{
 						addToList(flightListFrom, flight);
 					}
@@ -159,7 +173,7 @@ void findPathRecursive(LINKED_LIST* flightList[], TIME* departureTime, LINKED_LI
 			{
 				if (flight->source == getDestination(path) && compareTime(getArrivalTime(path), flight->departureTime) < 0)
 				{
-					if (getSeatsOfClass(flight->airplane, seatClass) > 0)
+					if (getNumberOfSeatsOfClass(flight->airplane, seatClass) > 0)
 					{
 						addToList(flightListFrom, flight);
 					}
@@ -181,7 +195,7 @@ void findPathRecursive(LINKED_LIST* flightList[], TIME* departureTime, LINKED_LI
 					{
 						if (flight->source == source)
 						{
-							if (getSeatsOfClass(flight->airplane, seatClass) > 0)
+							if (getNumberOfSeatsOfClass(flight->airplane, seatClass) > 0)
 							{
 								addToList(flightListFrom, flight);
 							}
@@ -191,7 +205,7 @@ void findPathRecursive(LINKED_LIST* flightList[], TIME* departureTime, LINKED_LI
 					{
 						if (flight->source == getDestination(path) && compareTime(getArrivalTime(path), flight->departureTime) < 0)
 						{
-							if (getSeatsOfClass(flight->airplane, seatClass) > 0)
+							if (getNumberOfSeatsOfClass(flight->airplane, seatClass) > 0)
 							{
 								addToList(flightListFrom, flight);
 							}
@@ -269,10 +283,53 @@ LINKED_LIST* findAllPath(LINKED_LIST* flightList[], TIME* departureTime, CITY* s
 	return pathList;
 }
 
-PATH* findPathForShortestFlightTime(LINKED_LIST* flightList[], TIME* departureTime, CITY* source, CITY* destination)
+PATH* findPathForShortestFlightTime(LINKED_LIST* flightList[], TIME* departureTime, CITY* source, CITY* destination, int seatClass)
 {
-	PATH* path = generatePath();
+	LINKED_LIST* pathList = findAllPath(flightList, departureTime, source, destination, seatClass);
+	ITERATOR* iterator;
+	PATH* pathForShortestFlightTime = NULL;
+	int shortestFlightTime = 0;
 
+	if (pathList == NULL)
+	{
+		return NULL;
+	}
+
+	iterator = generateIterator(pathList);
+
+	for (PATH* path = getNextData(iterator); path != NULL; path = getNextData(iterator))
+	{
+		if (pathForShortestFlightTime == NULL)
+		{
+			pathForShortestFlightTime = path;
+			shortestFlightTime = calculateTimeDifference(getDepartureTime(path), getArrivalTime(path));
+		}
+		else
+		{
+			int flightTime = calculateTimeDifference(getDepartureTime(path), getArrivalTime(path));
+
+			if (flightTime < shortestFlightTime)
+			{
+				pathForShortestFlightTime = path;
+				shortestFlightTime = flightTime;
+			}
+		}
+	}
+
+	removeFromList(pathList, pathForShortestFlightTime);
+	freeIterator(&iterator);
+
+	iterator = generateIterator(pathList);
+
+	for (PATH* path = getNextData(iterator); path != NULL; path = getNextData(iterator))
+	{
+		freePath(&path);
+	}
+
+	freeIterator(&iterator);
+	freeLinkedList(&pathList);
+
+	return pathForShortestFlightTime;
 }
 
 void freePath(PATH** path)
@@ -360,7 +417,7 @@ char* pathToStr(PATH* path, char* seatClassStr)
 	strcat(buffer, "--> ");
 	strcat(buffer, arrivalTime);
 
-	for (int j = 0; j < MAX_SPACE_BETWEEN_CITY_AND_TIME - strlen(departureTime); j++)
+	for (int j = 0; j < MAX_SPACE_BETWEEN_CITY_AND_TIME - strlen(arrivalTime); j++)
 	{
 		strcat(buffer, " ");
 	}

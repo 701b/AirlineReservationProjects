@@ -1,1 +1,159 @@
-﻿  AirlineReservationProjects.vcxproj -> C:\Users\vodia\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\x64\Debug\AirlineReservationProjects.exe
+﻿  init.c
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\init.c(35,18): warning C4244: '함수': 'time_t'에서 'unsigned int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\init.c(42,17): warning C4047: '=': 'char *'의 간접 참조 수준이 'int'과(와) 다릅니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\init.c(52,26): warning C4047: '함수': 'ITERATOR **'의 간접 참조 수준이 'ITERATOR *'과(와) 다릅니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\init.c(52,26): warning C4024: 'freeIterator': 형식 및 실제 매개 변수 1의 형식이 서로 다릅니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\init.c(57,33): warning C4047: '함수': 'char'의 간접 참조 수준이 'char *'과(와) 다릅니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\init.c(57,33): warning C4024: 'addToCityGraph': 형식 및 실제 매개 변수 2의 형식이 서로 다릅니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\init.c(81,18): warning C4244: '함수': 'time_t'에서 'unsigned int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\init.c(131,18): warning C4244: '함수': 'time_t'에서 'unsigned int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  main.c
+  reservation.c
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\reservation.c(6,1): warning C4005: 'RED': 매크로 재정의
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\consoleControl.h(7): message : 'RED'의 이전 정의를 참조하십시오.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\reservation.c(244,36): warning C4090: '=': 'const' 한정자가 서로 다릅니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\reservation.c(245,34): warning C4090: '=': 'const' 한정자가 서로 다릅니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\reservation.c(474,24): warning C4267: '=': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\reservation.c(488,24): warning C4267: '=': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  userInterface.c
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(160,35): warning C4133: '함수': 'COMBO_BOX *'과(와) 'VIEW *' 사이의 형식이 호환되지 않습니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(161,40): warning C4133: '함수': 'COMBO_BOX *'과(와) 'VIEW *' 사이의 형식이 호환되지 않습니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(162,42): warning C4133: '함수': 'COMBO_BOX *'과(와) 'VIEW *' 사이의 형식이 호환되지 않습니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(163,38): warning C4133: '함수': 'COMBO_BOX *'과(와) 'VIEW *' 사이의 형식이 호환되지 않습니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(164,67): warning C4047: '함수': 'void (__cdecl *)()'의 간접 참조 수준이 'void *(__cdecl *)(void *)'과(와) 다릅니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(164,67): warning C4024: 'generateButton': 형식 및 실제 매개 변수 2의 형식이 서로 다릅니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(164,81): warning C4133: '함수': 'BUTTON *'과(와) 'VIEW *' 사이의 형식이 호환되지 않습니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(165,70): warning C4047: '함수': 'void (__cdecl *)()'의 간접 참조 수준이 'void *(__cdecl *)(void *)'과(와) 다릅니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(165,70): warning C4024: 'generateButton': 형식 및 실제 매개 변수 2의 형식이 서로 다릅니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(165,84): warning C4133: '함수': 'BUTTON *'과(와) 'VIEW *' 사이의 형식이 호환되지 않습니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(166,66): warning C4047: '함수': 'void (__cdecl *)()'의 간접 참조 수준이 'void *(__cdecl *)(void *)'과(와) 다릅니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(166,66): warning C4024: 'generateButton': 형식 및 실제 매개 변수 2의 형식이 서로 다릅니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(166,80): warning C4133: '함수': 'BUTTON *'과(와) 'VIEW *' 사이의 형식이 호환되지 않습니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(167,79): warning C4047: '함수': 'void (__cdecl *)()'의 간접 참조 수준이 'void *(__cdecl *)(void *)'과(와) 다릅니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(167,79): warning C4024: 'generateButton': 형식 및 실제 매개 변수 2의 형식이 서로 다릅니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(167,94): warning C4133: '함수': 'BUTTON *'과(와) 'VIEW *' 사이의 형식이 호환되지 않습니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(171,73): warning C4047: '함수': 'void (__cdecl *)()'의 간접 참조 수준이 'void *(__cdecl *)(void *)'과(와) 다릅니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(171,73): warning C4024: 'generateButton': 형식 및 실제 매개 변수 2의 형식이 서로 다릅니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(179,74): warning C4133: '함수': 'TEXT *'과(와) 'VIEW *' 사이의 형식이 호환되지 않습니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(180,90): warning C4047: '함수': 'void (__cdecl *)()'의 간접 참조 수준이 'void *(__cdecl *)(void *)'과(와) 다릅니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(180,90): warning C4024: 'generateButton': 형식 및 실제 매개 변수 2의 형식이 서로 다릅니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(180,104): warning C4133: '함수': 'BUTTON *'과(와) 'VIEW *' 사이의 형식이 호환되지 않습니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(181,86): warning C4047: '함수': 'void (__cdecl *)()'의 간접 참조 수준이 'void *(__cdecl *)(void *)'과(와) 다릅니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(181,86): warning C4024: 'generateButton': 형식 및 실제 매개 변수 2의 형식이 서로 다릅니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(181,100): warning C4133: '함수': 'BUTTON *'과(와) 'VIEW *' 사이의 형식이 호환되지 않습니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(182,78): warning C4047: '함수': 'void (__cdecl *)()'의 간접 참조 수준이 'void *(__cdecl *)(void *)'과(와) 다릅니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(182,78): warning C4024: 'generateButton': 형식 및 실제 매개 변수 2의 형식이 서로 다릅니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(182,93): warning C4133: '함수': 'BUTTON *'과(와) 'VIEW *' 사이의 형식이 호환되지 않습니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(186,80): warning C4047: '함수': 'void (__cdecl *)()'의 간접 참조 수준이 'void *(__cdecl *)(void *)'과(와) 다릅니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(186,80): warning C4024: 'generateButton': 형식 및 실제 매개 변수 2의 형식이 서로 다릅니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(193,76): warning C4133: '함수': 'TEXT *'과(와) 'VIEW *' 사이의 형식이 호환되지 않습니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(194,75): warning C4133: '함수': 'TEXT *'과(와) 'VIEW *' 사이의 형식이 호환되지 않습니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(195,76): warning C4047: '함수': 'void (__cdecl *)()'의 간접 참조 수준이 'void *(__cdecl *)(void *)'과(와) 다릅니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(195,76): warning C4024: 'generateButton': 형식 및 실제 매개 변수 2의 형식이 서로 다릅니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(195,91): warning C4133: '함수': 'BUTTON *'과(와) 'VIEW *' 사이의 형식이 호환되지 않습니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(196,82): warning C4047: '함수': 'void (__cdecl *)()'의 간접 참조 수준이 'void *(__cdecl *)(void *)'과(와) 다릅니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(196,82): warning C4024: 'generateButton': 형식 및 실제 매개 변수 2의 형식이 서로 다릅니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(196,97): warning C4133: '함수': 'BUTTON *'과(와) 'VIEW *' 사이의 형식이 호환되지 않습니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(202,91): warning C4133: '함수': 'TEXT *'과(와) 'VIEW *' 사이의 형식이 호환되지 않습니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(203,94): warning C4047: '함수': 'void (__cdecl *)()'의 간접 참조 수준이 'void *(__cdecl *)(void *)'과(와) 다릅니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(203,94): warning C4024: 'generateButton': 형식 및 실제 매개 변수 2의 형식이 서로 다릅니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(203,109): warning C4133: '함수': 'BUTTON *'과(와) 'VIEW *' 사이의 형식이 호환되지 않습니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(204,82): warning C4047: '함수': 'void (__cdecl *)()'의 간접 참조 수준이 'void *(__cdecl *)(void *)'과(와) 다릅니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(204,82): warning C4024: 'generateButton': 형식 및 실제 매개 변수 2의 형식이 서로 다릅니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(204,97): warning C4133: '함수': 'BUTTON *'과(와) 'VIEW *' 사이의 형식이 호환되지 않습니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(214,99): warning C4133: '함수': 'TEXT *'과(와) 'VIEW *' 사이의 형식이 호환되지 않습니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(215,58): warning C4133: '함수': 'EDIT_TEXT *'과(와) 'VIEW *' 사이의 형식이 호환되지 않습니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(216,59): warning C4133: '함수': 'EDIT_TEXT *'과(와) 'VIEW *' 사이의 형식이 호환되지 않습니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(217,53): warning C4133: '함수': 'COMBO_BOX *'과(와) 'VIEW *' 사이의 형식이 호환되지 않습니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(218,84): warning C4047: '함수': 'void (__cdecl *)()'의 간접 참조 수준이 'void *(__cdecl *)(void *)'과(와) 다릅니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(218,84): warning C4024: 'generateButton': 형식 및 실제 매개 변수 2의 형식이 서로 다릅니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(218,99): warning C4133: '함수': 'BUTTON *'과(와) 'VIEW *' 사이의 형식이 호환되지 않습니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(219,98): warning C4047: '함수': 'void (__cdecl *)()'의 간접 참조 수준이 'void *(__cdecl *)(void *)'과(와) 다릅니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(219,98): warning C4024: 'generateButton': 형식 및 실제 매개 변수 2의 형식이 서로 다릅니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(219,113): warning C4133: '함수': 'BUTTON *'과(와) 'VIEW *' 사이의 형식이 호환되지 않습니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(225,67): warning C4047: '함수': 'void (__cdecl *)()'의 간접 참조 수준이 'void *(__cdecl *)(void *)'과(와) 다릅니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(225,67): warning C4024: 'generateButton': 형식 및 실제 매개 변수 2의 형식이 서로 다릅니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(226,80): warning C4133: '함수': 'TEXT *'과(와) 'VIEW *' 사이의 형식이 호환되지 않습니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(227,49): warning C4133: '함수': 'BUTTON *'과(와) 'VIEW *' 사이의 형식이 호환되지 않습니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(228,74): warning C4047: '함수': 'void (__cdecl *)()'의 간접 참조 수준이 'void *(__cdecl *)(void *)'과(와) 다릅니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(228,74): warning C4024: 'generateButton': 형식 및 실제 매개 변수 2의 형식이 서로 다릅니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(228,89): warning C4133: '함수': 'BUTTON *'과(와) 'VIEW *' 사이의 형식이 호환되지 않습니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(234,107): warning C4133: '함수': 'TEXT *'과(와) 'VIEW *' 사이의 형식이 호환되지 않습니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(235,80): warning C4133: '함수': 'TEXT *'과(와) 'VIEW *' 사이의 형식이 호환되지 않습니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(236,85): warning C4047: '함수': 'void (__cdecl *)()'의 간접 참조 수준이 'void *(__cdecl *)(void *)'과(와) 다릅니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(236,85): warning C4024: 'generateButton': 형식 및 실제 매개 변수 2의 형식이 서로 다릅니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(236,100): warning C4133: '함수': 'BUTTON *'과(와) 'VIEW *' 사이의 형식이 호환되지 않습니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(237,92): warning C4047: '함수': 'void (__cdecl *)()'의 간접 참조 수준이 'void *(__cdecl *)(void *)'과(와) 다릅니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(237,92): warning C4024: 'generateButton': 형식 및 실제 매개 변수 2의 형식이 서로 다릅니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(237,107): warning C4133: '함수': 'BUTTON *'과(와) 'VIEW *' 사이의 형식이 호환되지 않습니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(254,17): warning C4013: 'getch'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(261,42): warning C4133: '함수': 'VIEW *'과(와) 'BUTTON *' 사이의 형식이 호환되지 않습니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(261,48): warning C4020: 'pressButton': 실제 매개 변수가 너무 많습니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(265,43): warning C4133: '함수': 'VIEW *'과(와) 'COMBO_BOX *' 사이의 형식이 호환되지 않습니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(270,44): warning C4133: '함수': 'VIEW *'과(와) 'CHECK_BOX *' 사이의 형식이 호환되지 않습니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(281,39): warning C4133: '함수': 'VIEW *'과(와) 'EDIT_TEXT *' 사이의 형식이 호환되지 않습니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(354,73): warning C4133: '함수': 'BUTTON *'과(와) 'VIEW *' 사이의 형식이 호환되지 않습니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(355,63): warning C4133: '함수': 'TEXT *'과(와) 'VIEW *' 사이의 형식이 호환되지 않습니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(306,1): warning C4133: '초기화 중': 'VIEW *'과(와) 'TEXT *' 사이의 형식이 호환되지 않습니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(345,1): warning C4133: '초기화 중': 'VIEW *'과(와) 'TEXT *' 사이의 형식이 호환되지 않습니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(353,1): warning C4133: '초기화 중': 'VIEW *'과(와) 'TEXT *' 사이의 형식이 호환되지 않습니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(438,9): warning C4033: 'searchPaths'은(는) 값을 반환해야 합니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(445,9): warning C4033: 'searchPaths'은(는) 값을 반환해야 합니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(520,68): warning C4133: '함수': 'TEXT *'과(와) 'VIEW *' 사이의 형식이 호환되지 않습니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(521,69): warning C4133: '함수': 'TEXT *'과(와) 'VIEW *' 사이의 형식이 호환되지 않습니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(522,63): warning C4133: '함수': 'TEXT *'과(와) 'VIEW *' 사이의 형식이 호환되지 않습니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(523,86): warning C4133: '함수': 'TEXT *'과(와) 'VIEW *' 사이의 형식이 호환되지 않습니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(532,97): warning C4133: '함수': 'TEXT *'과(와) 'VIEW *' 사이의 형식이 호환되지 않습니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(544,1): warning C4133: '초기화 중': 'VIEW *'과(와) 'TEXT *' 사이의 형식이 호환되지 않습니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(551,1): warning C4133: '초기화 중': 'VIEW *'과(와) 'TEXT *' 사이의 형식이 호환되지 않습니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(621,91): warning C4133: '함수': 'BUTTON *'과(와) 'VIEW *' 사이의 형식이 호환되지 않습니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(622,79): warning C4020: 'reservationToStr': 실제 매개 변수가 너무 많습니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(622,88): warning C4133: '함수': 'TEXT *'과(와) 'VIEW *' 사이의 형식이 호환되지 않습니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(627,79): warning C4133: '함수': 'TEXT *'과(와) 'VIEW *' 사이의 형식이 호환되지 않습니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(642,47): warning C4133: '=': 'VIEW *'과(와) 'TEXT *' 사이의 형식이 호환되지 않습니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(636,1): warning C4133: '초기화 중': 'VIEW *'과(와) 'TEXT *' 사이의 형식이 호환되지 않습니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(703,102): warning C4133: '함수': 'TEXT *'과(와) 'VIEW *' 사이의 형식이 호환되지 않습니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(712,104): warning C4133: '함수': 'TEXT *'과(와) 'VIEW *' 사이의 형식이 호환되지 않습니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(724,1): warning C4133: '초기화 중': 'VIEW *'과(와) 'TEXT *' 사이의 형식이 호환되지 않습니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(738,86): warning C4133: '함수': 'TEXT *'과(와) 'VIEW *' 사이의 형식이 호환되지 않습니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(742,74): warning C4133: '함수': 'TEXT *'과(와) 'VIEW *' 사이의 형식이 호환되지 않습니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(759,67): warning C4133: '함수': 'TEXT *'과(와) 'VIEW *' 사이의 형식이 호환되지 않습니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(771,62): warning C4133: '함수': 'TEXT *'과(와) 'VIEW *' 사이의 형식이 호환되지 않습니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(781,118): warning C4133: '함수': 'CHECK_BOX *'과(와) 'VIEW *' 사이의 형식이 호환되지 않습니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(786,55): warning C4133: '함수': 'CHECK_BOX *'과(와) 'VIEW *' 사이의 형식이 호환되지 않습니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(827,74): warning C4133: '함수': 'TEXT *'과(와) 'VIEW *' 사이의 형식이 호환되지 않습니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(828,75): warning C4133: '함수': 'TEXT *'과(와) 'VIEW *' 사이의 형식이 호환되지 않습니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(829,69): warning C4133: '함수': 'TEXT *'과(와) 'VIEW *' 사이의 형식이 호환되지 않습니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(830,92): warning C4133: '함수': 'TEXT *'과(와) 'VIEW *' 사이의 형식이 호환되지 않습니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(839,103): warning C4133: '함수': 'TEXT *'과(와) 'VIEW *' 사이의 형식이 호환되지 않습니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(860,44): warning C4133: '=': 'VIEW *'과(와) 'TEXT *' 사이의 형식이 호환되지 않습니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(862,44): warning C4133: '=': 'VIEW *'과(와) 'TEXT *' 사이의 형식이 호환되지 않습니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(864,44): warning C4133: '=': 'VIEW *'과(와) 'TEXT *' 사이의 형식이 호환되지 않습니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(882,20): warning C4133: '함수': 'VIEW **'과(와) 'TEXT **' 사이의 형식이 호환되지 않습니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(858,1): warning C4133: '초기화 중': 'VIEW *'과(와) 'TEXT *' 사이의 형식이 호환되지 않습니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(877,1): warning C4133: '초기화 중': 'VIEW *'과(와) 'CHECK_BOX *' 사이의 형식이 호환되지 않습니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(922,9): warning C4033: 'selectSeat'은(는) 값을 반환해야 합니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(963,1): warning C4133: '초기화 중': 'VIEW *'과(와) 'TEXT *' 사이의 형식이 호환되지 않습니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(970,1): warning C4133: '초기화 중': 'VIEW *'과(와) 'TEXT *' 사이의 형식이 호환되지 않습니다.
+  코드를 생성하고 있습니다...
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(297): warning C4716: 'goToFlightInformation': 값을 반환해야 합니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(479): warning C4716: 'searchPaths': 값을 반환해야 합니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(486): warning C4716: 'nextResult': 값을 반환해야 합니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(495): warning C4716: 'previousResult': 값을 반환해야 합니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(580): warning C4716: 'deleteReservation': 값을 반환해야 합니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(587): warning C4716: 'cancleReservationDetail': 값을 반환해야 합니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(656): warning C4716: 'nextReservationList': 값을 반환해야 합니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(666): warning C4716: 'previousReservationList': 값을 반환해야 합니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(685): warning C4716: 'cancleReservationList': 값을 반환해야 합니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(677): warning C4716: 'goToReservationDetail': 값을 반환해야 합니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(692): warning C4716: 'cancleFlightInformation': 값을 반환해야 합니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(699): warning C4716: 'goToEnteringMemberInformation': 값을 반환해야 합니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(854): warning C4716: 'goToCheckingAllInformation': 값을 반환해야 합니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(936): warning C4716: 'selectSeat': 값을 반환해야 합니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(957): warning C4716: 'cancleEnteringMemberInformation': 값을 반환해야 합니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(951): warning C4716: 'goToSeatSelection': 값을 반환해야 합니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(993): warning C4716: 'reservateFlight': 값을 반환해야 합니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(1019): warning C4716: 'cancleCheckingAllInformation': 값을 반환해야 합니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(1027): warning C4716: 'cancleSeatSelection': 값을 반환해야 합니다.
+C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\AirlineReservationProjects\userInterface.c(1034): warning C4716: 'goToReservationList': 값을 반환해야 합니다.
+  AirlineReservationProjects.vcxproj -> C:\Users\Vodianova\Google 드라이브\비주얼스튜디오\프로젝트\AirlineReservationProjects\x64\Debug\AirlineReservationProjects.exe

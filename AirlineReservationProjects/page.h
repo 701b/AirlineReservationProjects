@@ -5,8 +5,6 @@
 
 #include "consoleControl.h"
 
-// EDIT_TEXT 등의 input에 대한 방식을 바꾸도록 한다.
-
 #define BUTTON_CODE 1
 #define EDIT_TEXT_CODE 2
 #define TEXT_CODE 3
@@ -14,13 +12,16 @@
 #define CHECK_BOX_CODE 5
 
 #define MAX_ROW_OF_VIEW 40
-#define MAX_COLUMN_OF_VIEW 10
+#define MAX_COLUMN_OF_VIEW 15
 
 #define CHANGEABLE 1
 #define UNCHANGEABLE 0
 
 #define CHECKED 1
 #define UNCHECKED 0
+
+#define MAX_ROW_OF_CHECK_BOX_SET 10
+#define MAX_COLUMN_OF_CHECK_BOX_SET 30
 
 typedef struct view
 {
@@ -79,6 +80,9 @@ typedef struct checkBox
 	int y;
 	int isChecked;
 	int isChangeable;
+	struct checkBox* (*checkBoxSet)[MAX_COLUMN_OF_CHECK_BOX_SET];
+	int maxNumberOfCheck;
+	int color;
 } CHECK_BOX;
 
 // ------ PAGE관련 함수 ------
@@ -104,7 +108,8 @@ page에 담긴 VIEW들을 각자의 위치에 띄워서 보여준다. */
 void showPage(PAGE* page);
 
 /*
-direction을 입력받아 page의 currentView를 바꾼다. */
+direction을 입력받아 page의 currentView를 바꾼다.
+위 아래로 이동할 때에는 가장 비슷한 x좌표를 가진 view로 이동한다. */
 void moveTo(PAGE* page);
 
 /*
@@ -202,7 +207,7 @@ text의 메모리를 해제한다. */
 void freeComboBox(COMBO_BOX** comboBox);
 
 // ------ CHECK_BOX관련 함수 ------
-CHECK_BOX* generateCheckBox(int isChecked, int isChangeable, int x, int y);
+CHECK_BOX* generateCheckBox(int isChecked, int isChangeable, CHECK_BOX* (*checkBoxSet)[MAX_COLUMN_OF_CHECK_BOX_SET], int maxNumberOfCheck, int color, int x, int y);
 
 void showCheckBox(CHECK_BOX* checkBox);
 

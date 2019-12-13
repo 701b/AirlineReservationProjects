@@ -1,10 +1,3 @@
-/*
-city.h
-
-내부에 전역 변수 CITY_GRPTH* cityGraph가 선언되어 있다.
-이것은 생성된 모든 CITY를 담는다.
-*/
-
 #pragma once
 
 #include <math.h>

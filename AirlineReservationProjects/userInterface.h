@@ -7,6 +7,6 @@
 #include "reservation.h"
 #include "init.h"
 
-void initInterface();
-void showMain();
-void showSearch();
+/*
+프로그램을 실행한다. */
+void run();
